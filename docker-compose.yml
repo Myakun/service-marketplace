@@ -1,41 +1,36 @@
-version: '3'
 services:
   mysql:
-    container_name: my-service-mysql
-    image: mysql:5.7
-    ports:
-      - "${APP_MYSQL_PORT}:${APP_MYSQL_PORT}"
+    container_name: service-marketplace-mysql
+    image: mysql:8.4
     volumes:
-      - ./data/mysql:/var/lib/mysql
+      - ./var/mysql:/var/lib/mysql
     command: [ 'mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci' ]
     environment:
+      MYSQL_ROOT_PASSWORD: ${APP_MYSQL_ROOT_PASS}
       MYSQL_DATABASE: ${APP_MYSQL_DB}
       MYSQL_PASSWORD: ${APP_MYSQL_PASS}
       MYSQL_USER: ${APP_MYSQL_USER}
-    network_mode: bridge
     restart: always
   nginx:
     build: ./docker/nginx
-    container_name: my-service-nginx
+    container_name: service-marketplace-nginx
     env_file: .env
-    links:
+    depends_on:
       - php
-    network_mode: bridge
     ports:
       - "${APP_HTTP_PORT}:${APP_HTTP_PORT}"
-    restart: always
     volumes:
       - ./docker/nginx/hosts:/etc/nginx/conf.d
       - ./var/log/nginx:/var/log/nginx
       - ./:/var/www/app
+    restart: always
   php:
     build:
       context: ./docker/php
     env_file: .env
-    container_name: my-service-php
-    links:
+    container_name: service-marketplace-php
+    depends_on:
       - mysql
-    network_mode: bridge
-    restart: always
     volumes:
       - ./:/var/www/app
+    restart: always
