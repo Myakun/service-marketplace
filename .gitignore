@@ -1,11 +1,11 @@
 .DS_Store
 .idea
 Thumbs.db
-src/vendor
+/vendor
 /phpunit.xml
 .lock
 composer.lock
 .env
 node_modules
 docker-compose.override.yml
-/var/mysql
+/var/

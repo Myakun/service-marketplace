@@ -1,6 +1,6 @@
 composer-update:
-	docker exec service-marketplace-php /usr/local/bin/composer update -d /var/www/app/src --prefer-dist
-	docker exec service-marketplace-php /usr/local/bin/composer dump-autoload -d /var/www/app/src -o
+	docker exec service-marketplace-php /usr/local/bin/composer update -d /var/www/app --prefer-dist
+	docker exec service-marketplace-php /usr/local/bin/composer dump-autoload -d /var/www/app -o
 
 docker-rebuild:
 	docker compose stop
