@@ -82,6 +82,10 @@ class Service extends ActiveRecord
             $totalPrice += $price->price;
         }
 
+        if (0 == $count) {
+            return 0;
+        }
+
         return (int) ($totalPrice / $count);
     }
 
@@ -101,7 +105,7 @@ class Service extends ActiveRecord
 
     public function getMinPrice(): int
     {
-        $minPrice = null;
+        $minPrice = 0;
 
         foreach ($this->prices as $price) {
             if (null == $minPrice || $price->price < $minPrice) {
