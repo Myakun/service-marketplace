@@ -6,9 +6,9 @@ use app\components\widgets\grid\GridView;
 use yii\helpers\Html;
 
 /**
- * @var \yii\data\ActiveDataProvider $dataProvider
- * @var \app\modules\admin\models\user\AdminUserList $filterModel
- * @var \app\components\web\View $this
+ * @var yii\data\ActiveDataProvider $dataProvider
+ * @var app\modules\admin\models\user\AdminUserList $filterModel
+ * @var app\components\web\View $this
  */
 
 $this->title = Yii::t('app', 'Administrators');
