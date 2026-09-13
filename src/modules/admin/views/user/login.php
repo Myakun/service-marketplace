@@ -4,10 +4,10 @@ use app\components\widgets\ActiveForm;
 use app\modules\admin\models\user\Login;
 use himiklab\yii2\recaptcha\ReCaptcha3;
 use yii\helpers\Html;
-use yii\helpers\Url;
 
 /**
  * @var Login $model
+ * @var app\components\web\View $this
  */
 
 $this->title = Yii::t('app', 'Sign in');
@@ -29,7 +29,6 @@ echo $form
         ->widget(ReCaptcha3::class)
         ->error(false)
         ->label(false)
-
 ?>
 
     <div class="d-grid">

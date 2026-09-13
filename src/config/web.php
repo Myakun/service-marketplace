@@ -8,8 +8,8 @@ use app\models\User;
 use himiklab\yii2\recaptcha\ReCaptchaConfig;
 use yii\helpers\ArrayHelper;
 
-define('IS_ADMIN' , str_contains($_SERVER['REQUEST_URI'], '/admin'));
-define('IS_PARTNER' , str_contains($_SERVER['REQUEST_URI'], '/partner'));
+define('IS_ADMIN', str_contains($_SERVER['REQUEST_URI'], '/admin'));
+define('IS_PARTNER', str_contains($_SERVER['REQUEST_URI'], '/partner'));
 
 $params = include __DIR__ . '/params.php';
 
@@ -48,26 +48,29 @@ $config = [
             ],
             'loginUrl' => ['/admin/user/login'],
         ] : (
-            IS_PARTNER ? [
-                'enableAutoLogin' => true,
-                'idParam' => '__id-partner',
-                'identityClass' => Partner::class,
-                'identityCookie' => [
-                    'httpOnly' => true,
-                    'name' => '_identity-partner',
-                ],
-                'loginUrl' => ['/partner/user/login'],
-            ] : [
-                'enableAutoLogin' => true,
-                'idParam' => '__id-customer',
-                'identityClass' => Customer::class,
-                'identityCookie' => [
-                    'httpOnly' => true,
-                    'name' => '_identity-customer',
-                ],
-                'loginUrl' => ['/customer/login'],
-            ]
+        IS_PARTNER ? [
+            'enableAutoLogin' => true,
+            'idParam' => '__id-partner',
+            'identityClass' => Partner::class,
+            'identityCookie' => [
+                'httpOnly' => true,
+                'name' => '_identity-partner',
+            ],
+            'loginUrl' => ['/partner/user/login'],
+        ] : [
+            'enableAutoLogin' => true,
+            'idParam' => '__id-customer',
+            'identityClass' => Customer::class,
+            'identityCookie' => [
+                'httpOnly' => true,
+                'name' => '_identity-customer',
+            ],
+            'loginUrl' => ['/customer/login'],
+        ]
         ),
+        'view' => [
+            'class' => \app\components\web\View::class
+        ]
     ],
     'defaultRoute' => 'default/index',
     'modules' => [
