@@ -10,7 +10,7 @@ use JetBrains\PhpStorm\ArrayShape;
 use yii\base\Model;
 use Yii;
 
-final class Login extends Model
+final class AdminLogin extends Model
 {
     public string $email = '';
 

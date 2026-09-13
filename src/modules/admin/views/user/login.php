@@ -1,12 +1,12 @@
 <?php
 
 use app\components\widgets\ActiveForm;
-use app\modules\admin\models\user\Login;
+use app\modules\admin\models\user\AdminLogin;
 use himiklab\yii2\recaptcha\ReCaptcha3;
 use yii\helpers\Html;
 
 /**
- * @var Login $model
+ * @var AdminLogin $model
  * @var app\components\web\View $this
  */
 
