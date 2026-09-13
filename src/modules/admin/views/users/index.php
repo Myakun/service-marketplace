@@ -8,9 +8,10 @@ use yii\helpers\Html;
 /**
  * @var \yii\data\ActiveDataProvider $dataProvider
  * @var \app\modules\admin\models\user\AdminUserList $filterModel
+ * @var \app\components\web\View $this
  */
 
-$this->title = 'Администраторы';
+$this->title = Yii::t('app', 'Administrators');
 
 ?>
 
@@ -23,6 +24,6 @@ $this->title = 'Администраторы';
     ],
     'summary' => false,
     'toolbar' => [
-        'content' => Html::a('Создать', ['create'], ['class' => 'btn btn-success'])
+        'content' => Html::a(Yii::t('app', 'Create'), ['create'], ['class' => 'btn btn-success'])
     ]
 ]); ?>
