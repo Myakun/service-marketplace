@@ -10,20 +10,19 @@ use JetBrains\PhpStorm\ArrayShape;
 use yii\base\Model;
 use Yii;
 
-class Login extends Model
+final class Login extends Model
 {
-    public ?string $email = null;
+    public string $email = '';
 
-    public ?string $password = null;
+    public string $password = '';
 
-    public ?string $reCaptcha = null;
+    public string $reCaptcha = '';
 
-    #[ArrayShape(['email' => "string", 'password' => "string"])]
     public function attributeLabels(): array
     {
         return [
-            'email' => 'Email',
-            'password' => 'Пароль',
+            'email' => Yii::t('app', 'Email'),
+            'password' => Yii::t('app', 'Password'),
         ];
     }
 
@@ -38,19 +37,19 @@ class Login extends Model
         ]);
 
         if (null == $user || !Yii::$app->getSecurity()->validatePassword($this->password, $user->password)) {
-            $this->addError('password', 'Неправильные данные для входа');
+            $this->addError('password', Yii::t('app', 'Invalid email or password.'));
         }
     }
 
     public function rules(): array
     {
         return [
-            ['email', 'filter', 'filter'=>'trim'],
-            ['email', 'filter', 'filter'=>'strtolower'],
+            ['email', 'filter', 'filter' => 'trim'],
+            ['email', 'filter', 'filter' => 'strtolower'],
             ['email', 'email'],
             ['email', 'required'],
 
-            ['password', 'filter', 'filter'=>'trim'],
+            ['password', 'filter', 'filter' => 'trim'],
             ['password', 'required'],
             ['password', 'loginRule'],
 
