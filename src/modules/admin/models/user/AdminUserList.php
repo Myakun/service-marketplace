@@ -8,13 +8,11 @@ use app\models\User;
 use yii\base\Model;
 use yii\db\ActiveQuery;
 
-class Index extends Model
+final class AdminUserList extends Model
 {
     public function getQuery(): ActiveQuery
     {
-        $query = User::find()
+        return User::find()
             ->with(['createdBy']);
-
-        return $query;
     }
 }

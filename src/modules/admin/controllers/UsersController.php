@@ -7,7 +7,7 @@ namespace app\modules\admin\controllers;
 use app\components\web\Controller;
 use app\components\web\crud\CRUDTrait;
 use app\models\User;
-use app\modules\admin\models\user\Index;
+use app\modules\admin\models\user\AdminUserList;
 use app\modules\admin\models\user\Save;
 use Yii;
 use yii\web\NotFoundHttpException;
@@ -38,7 +38,7 @@ class UsersController extends Controller
 
     public function actionIndex(): Response
     {
-        $filterModel = new Index();
+        $filterModel = new AdminUserList();
         $attributes = Yii::$app->getRequest()->get();
         $filterModel->load($attributes);
 

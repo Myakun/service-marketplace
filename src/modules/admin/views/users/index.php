@@ -7,7 +7,7 @@ use yii\helpers\Html;
 
 /**
  * @var \yii\data\ActiveDataProvider $dataProvider
- * @var \app\modules\admin\models\user\Index $filterModel
+ * @var \app\modules\admin\models\user\AdminUserList $filterModel
  */
 
 $this->title = 'Администраторы';
