@@ -39,7 +39,7 @@
     "kartik-v/yii2-widgets": "v3.4.1",
     "kartik-v/yii2-widget-typeahead": "v1.0.4",
     "kotchuprik/yii2-sortable-widgets": "v2.1.0",
-    "myakun/yii2-recaptcha-widget" : "*",
+    "myakun/yii2-recaptcha-widget": "*",
     "php": ">=8.5",
     "yiisoft/yii2": "~2.0.52",
     "yiisoft/yii2-bootstrap5": "2.0.50",
@@ -53,7 +53,9 @@
     "allow-plugins": {
       "yiisoft/yii2-composer": true
     },
-    "github-protocols": ["https"]
+    "github-protocols": [
+      "https"
+    ]
   },
   "extra": {
     "asset-installer-paths": {
@@ -62,5 +64,12 @@
     }
   },
   "name": "myakun/apotheke",
-  "description": ""
+  "description": "",
+  "require-dev": {
+    "phpstan/phpstan": "^2.2",
+    "yii2-extensions/phpstan": "^0.4.1"
+  },
+  "scripts": {
+    "phpstan": "phpstan analyse --memory-limit=1G"
+  }
 }
