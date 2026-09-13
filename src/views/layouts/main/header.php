@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use app\assets\App\App;
+use app\assets\AppAsset;
 use yii\bootstrap5\ButtonDropdown;
 
 /**
- * @var App $appAsset
+ * @var AppAsset $appAsset
  */
 
 $isGuest = Yii::$app->getUser()->getIsGuest();

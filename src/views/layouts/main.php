@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 use app\components\assets\FontAwesome;
 use app\models\User;
-use kartik\nav\NavX;
-use yii\bootstrap5\NavBar;
 use yii\helpers\Html;
 
 /**
@@ -27,7 +25,7 @@ $identity = Yii::$app->getUser()->getIdentity();
             <title><?php echo Html::encode($this->title); ?></title>
             <?php echo Html::csrfMetaTags(); ?>
             <?php FontAwesome::register($this); ?>
-            <?php $appAsset = \app\assets\App\App::register($this); ?>
+            <?php $appAsset = \app\assets\AppAsset::register($this); ?>
             <?php $this->head(); ?>
         </head>
         <body class="<?php echo Yii::$app->language; ?>">

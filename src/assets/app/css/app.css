@@ -5,74 +5,74 @@ body {
 }
 
 .breadcrumb {
-    padding:16px 0 0;
+    padding: 16px 0 0;
 }
 
 .breadcrumb a {
-    color:#1f3a93;
+    color: #1f3a93;
 }
 
 .btn-warning, .btn-warning:link, .btn-warning:visited, .btn-warning:focus {
-    background:#ae0052;
-    border-color:#ae0052;
-    color:#FFF;
-    outline:none;
+    background: #ae0052;
+    border-color: #ae0052;
+    color: #FFF;
+    outline: none;
 }
 
 .btn-warning:hover, .btn-warning:active {
-    background:#c13379;
-    border-color:#c13379;
-    color:#FFF;
-    outline:none;
+    background: #c13379;
+    border-color: #c13379;
+    color: #FFF;
+    outline: none;
 }
 
 #category .section-title {
-    margin-top:16px;
+    margin-top: 16px;
 }
 
 #category .table-wrapper {
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
 }
 
 #category .table {
-    background:#fff;
-    width:auto;
+    background: #fff;
+    width: auto;
 }
 
 #footer {
     border-top: 2px solid #ae0052;
-    padding:20px 0;
+    padding: 20px 0;
 }
 
 #footer .contacts {
-    align-items:flex-end;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #footer .contacts .contact a {
-    color:#000;
-    font-size:14px;
+    color: #000;
+    font-size: 14px;
 }
 
 #footer .copyright {
-    align-items:center;
-    display:flex;
-    justify-content:center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 #footer .logo {
-    text-align:left;
+    text-align: left;
 }
 
 #footer .logo img {
-    max-height:60px;
+    max-height: 60px;
 }
 
 #header-menu .navbar {
-    background:#212145!important;
+    background: #212145 !important;
 }
 
 #header-menu .navbar-nav > li > a {
@@ -80,14 +80,14 @@ body {
 }
 
 #header-top {
-    height:90px;
-    padding:15px 0;
+    height: 90px;
+    padding: 15px 0;
 }
 
 #header-top .contacts {
-    align-items:center;
-    display:flex;
-    justify-content:space-between;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 #header-top .contacts .contact .icon {
@@ -97,99 +97,100 @@ body {
     text-align: center;
     height: 34px;
     color: #fff;
-    display:inline-block;
-    line-height:34px;
-    margin-right:8px;
+    display: inline-block;
+    line-height: 34px;
+    margin-right: 8px;
 }
 
 #header-top .contacts .contact a {
-    color:#6f505d;
-    font-size:16px;
-    font-weight:700;
-    text-decoration:none;
+    color: #6f505d;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 #header-top .logo {
-    text-align:left;
+    text-align: left;
 }
 
 #header-top .logo img {
-    max-height:60px;
+    max-height: 60px;
 }
 
 #header-top .user {
-    align-items:center;
-    display:flex;
-    justify-content:flex-end;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
 }
 
 #header-top .user.authed {
-    align-items:flex-end;
-    flex-direction:column;
-    justify-content:center;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #header-top .user.authed .btn-link {
-    color:#ae0052;
+    color: #ae0052;
 }
 
 #main {
-    background:#fff;
+    background: #fff;
     flex: 1;
 }
 
 #order .select-partner .icon {
-    display:none;
+    display: none;
 }
 
 #order .select-partner.active .icon {
-    display:inline-block;
+    display: inline-block;
 }
 
 #order .select-partner.active .text {
-    display:none;
+    display: none;
 }
 
 .rating .rating-md {
-    font-size:16px;
+    font-size: 16px;
 }
 
 .rating .krajee-icon-star {
-    height:20px!important;
-    width:20px!important;
+    height: 20px !important;
+    width: 20px !important;
 }
+
 #search-partner-guest-data {
-    justify-content:center;
-    padding:16px 0 32px;
+    justify-content: center;
+    padding: 16px 0 32px;
 }
 
 #search-partner-price-slider {
-    padding-bottom:32px;
+    padding-bottom: 32px;
 }
 
 #search-partner-price-slider-value {
-    color:#ae0052;
-    font-size:22px;
-    font-weight:700;
-    padding:16px 0 24px;
-    text-align:center;
+    color: #ae0052;
+    font-size: 22px;
+    font-weight: 700;
+    padding: 16px 0 24px;
+    text-align: center;
 }
 
 #search-partner-start-search-guest .icon {
-    display:none;
+    display: none;
 }
 
 #search-partner-start-search-guest.active .icon {
-    display:inline-block;
+    display: inline-block;
 }
 
 #search-partner-start-search-guest.active .text {
-    display:none;
+    display: none;
 }
 
 .section-body {
     background: #fff;
-    box-shadow: 0px 0px 16px 0px rgb(0 0 0 / 15%);
+    box-shadow: 0 0 16px 0 rgb(0 0 0 / 15%);
     padding: 30px;
 }
 
@@ -233,75 +234,76 @@ body {
 }
 
 #services .category:hover, #services .category:active {
-    text-decoration:none;
+    text-decoration: none;
 }
 
 #services .category {
-    color:#ae0052;
-    font-weight:700;
+    color: #ae0052;
+    font-weight: 700;
 }
 
 #services .category-wrapper {
-    margin-bottom:32px;
+    margin-bottom: 32px;
 }
 
 #services .section-body {
-    padding-bottom:0;
+    padding-bottom: 0;
 }
 
 #services .services {
-    padding:0;
-    list-style-type:none;
-    margin:0;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
 }
 
-#services .services a:hover,  #services .services a:active {
-    text-decoration:none;
+#services .services a:hover, #services .services a:active {
+    text-decoration: none;
 }
 
 #services .services li a {
-    color:#212145;
-    font-size:15px;
+    color: #212145;
+    font-size: 15px;
 }
 
 #services .show-all {
-    color:#ae0052;!important;
+    color: #ae0052;
+!important;
 }
 
 #services .show-all:hover, #services .show-all:active {
-    text-decoration:none;
+    text-decoration: none;
 }
 
 @media (max-width: 1200px) {
     #header-menu .navbar {
-        font-size:14px;
+        font-size: 14px;
     }
 
     #header-top .contacts .icon {
-        display:none!important;
-        font-size:14px;
+        display: none !important;
+        font-size: 14px;
     }
 
     #header-top .contacts .contact a {
-        font-size:14px;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 992px) {
     #header-menu .navbar .container {
-        justify-content:center;
+        justify-content: center;
     }
 
     #header-menu .navbar-toggler {
-        color:#FFF;
+        color: #FFF;
     }
 
 
     #header-top {
-        height:auto;
+        height: auto;
     }
 
     #header-top .user.authed {
-        align-items:center;
+        align-items: center;
     }
 }

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @var \app\assets\App\App $appAsset
+ * @var \app\assets\AppAsset $appAsset
  */
 
 $email = Yii::$app->params['contacts']['email'];
