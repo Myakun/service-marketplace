@@ -13,6 +13,12 @@ docker-rebuild:
 	docker compose build
 	docker compose up -d --remove-orphans
 
+phpcs:
+	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/php-cs-fixer fix --dry-run --diff
+
+phpcs-fix:
+	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/php-cs-fixer fix
+
 phpstan:
 	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/phpstan analyse --memory-limit=1G
 
@@ -32,4 +38,3 @@ yii-migrate-down-all:
 
 yii-migrate-up:
 	docker exec service-marketplace-php /usr/local/bin/php /var/www/app/src/yii.php migrate/up --interactive=0
-
