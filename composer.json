@@ -40,7 +40,7 @@
     "kartik-v/yii2-widget-typeahead": "v1.0.4",
     "kotchuprik/yii2-sortable-widgets": "v2.1.0",
     "myakun/yii2-recaptcha-widget" : "*",
-    "php": ">=8.1",
+    "php": ">=8.5",
     "yiisoft/yii2": "~2.0.52",
     "yiisoft/yii2-bootstrap5": "2.0.50",
     "yiisoft/yii2-debug": "2.1.19",
