@@ -10,7 +10,7 @@ $finder = Finder::create()
     ->in(__DIR__ . '/src')
     ->name('*.php');
 
-return (new Config())
+return new Config()
     ->setCacheFile(__DIR__ . '/var/cache/php-cs-fixer.cache')
     ->setFinder($finder)
     ->setParallelConfig(ParallelConfigFactory::detect())
