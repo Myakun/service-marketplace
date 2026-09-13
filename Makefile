@@ -25,6 +25,9 @@ phpstan:
 phpunit:
 	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/phpunit
 
+phpunit-coverage:
+	docker exec -w /var/www/app -e XDEBUG_MODE=coverage service-marketplace-php /usr/local/bin/php vendor/bin/phpunit --coverage-text --coverage-html var/log/coverage
+
 phpstan-baseline:
 	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/phpstan analyse --memory-limit=1G --generate-baseline
 
