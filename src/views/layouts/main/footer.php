@@ -16,7 +16,7 @@ $phone = Yii::$app->formatter->formatPhone(Yii::$app->params['contacts']['phone'
         <div class="row">
             <div class="col-12 col-md-4 logo">
                 <a href="/">
-                    <img class="img-fluid" src="<?php echo $appAsset->baseUrl; ?>/img/logo.png" alt="">
+                    <img class="img-fluid" src="<?php echo $appAsset->baseUrl; ?>/img/logo.svg" alt="">
                 </a>
             </div>
             <div class="col-12 col-md-4 copyright">
