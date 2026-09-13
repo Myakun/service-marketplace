@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 /**
- * @var \app\components\widgets\ActiveForm $form
- * @var \app\modules\admin\models\user\Save $model
+ * @var app\components\widgets\ActiveForm $form
+ * @var app\modules\admin\models\user\Save $model
  */
 
 echo $form->errorSummary([$model, $model->getEntity()])
@@ -18,11 +18,11 @@ echo $form->errorSummary([$model, $model->getEntity()])
         echo $form->field($model, 'name');
 
         echo $form
-            ->field($model, 'email', [
-                'inputOptions' => [
-                    'type' => 'email',
-                ],
-            ]);
+                ->field($model, 'email', [
+                        'inputOptions' => [
+                                'type' => 'email',
+                        ],
+                ]);
         ?>
     </div>
 </div>
