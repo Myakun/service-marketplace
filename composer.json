@@ -12,8 +12,8 @@
         "type": "yii2-extension",
         "dist": {
           "type": "zip",
-          "url": "https://codeload.github.com/Myakun/yii2-recaptcha-widget/zip/341ae7e19e12783f3dfd8984a49185e0a44021ea",
-          "reference": "341ae7e19e12783f3dfd8984a49185e0a44021ea"
+          "url": "https://codeload.github.com/Myakun/yii2-recaptcha-widget/zip/6d4410774976e1782dffa04fcb7f377ddca4d1cd",
+          "reference": "6d4410774976e1782dffa04fcb7f377ddca4d1cd"
         },
         "require": {
           "yiisoft/yii2": "~2.0.11",

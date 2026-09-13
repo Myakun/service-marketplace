@@ -52,6 +52,8 @@ final class Login extends Model
             ['password', 'filter', 'filter' => 'trim'],
             ['password', 'required'],
             ['password', 'loginRule'],
+
+            ['reCaptcha', ReCaptchaValidator3::class],
         ];
     }
 }
