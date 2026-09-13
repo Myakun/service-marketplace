@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use app\assets\App\App;
+use app\assets\AppAsset;
 use yii\bootstrap5\ButtonDropdown;
 
 /**
- * @var App $appAsset
+ * @var AppAsset $appAsset
  */
 
 $isGuest = Yii::$app->getUser()->getIsGuest();
@@ -27,7 +27,7 @@ $phone = Yii::$app->formatter->formatPhone(Yii::$app->params['contacts']['phone'
             <div class="row">
                 <div class="col-12 col-md-3 logo">
                     <a href="/">
-                        <img class="img-fluid" src="<?php echo $appAsset->baseUrl; ?>/img/logo.png" alt="">
+                        <img class="img-fluid" src="<?php echo $appAsset->baseUrl; ?>/img/logo.svg" alt="">
                     </a>
                 </div>
                 <div class="col-12 col-md-5 contacts">
