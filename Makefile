@@ -22,6 +22,9 @@ phpcs-fix:
 phpstan:
 	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/phpstan analyse --memory-limit=1G
 
+phpunit:
+	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/phpunit
+
 phpstan-baseline:
 	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/phpstan analyse --memory-limit=1G --generate-baseline
 
