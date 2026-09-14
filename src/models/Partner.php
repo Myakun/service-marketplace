@@ -26,17 +26,17 @@ use yii\web\IdentityInterface;
  */
 class Partner extends ActiveRecord implements IdentityInterface
 {
-    public const CONTACT_PERSON_MAX_LENGTH = 100;
+    public const int CONTACT_PERSON_MAX_LENGTH = 100;
 
-    public const NAME_MAX_LENGTH = 150;
+    public const int NAME_MAX_LENGTH = 150;
 
-    public const PASSWORD_MIN_LENGTH = 8;
+    public const int PASSWORD_MIN_LENGTH = 8;
 
-    public const PHONE_LENGTH = 10;
+    public const int PHONE_LENGTH = 10;
 
-    public const STATUS_ACTIVE = 'active';
+    public const string STATUS_ACTIVE = 'active';
 
-    public const STATUS_INACTIVE = 'inactive';
+    public const string STATUS_INACTIVE = 'inactive';
 
     public function activate(): void
     {

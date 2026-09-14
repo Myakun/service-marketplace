@@ -22,9 +22,9 @@ use yii\db\ActiveRecord;
  */
 class Price extends ActiveRecord
 {
-    public const STATUS_ACTIVE = 'active';
+    public const string STATUS_ACTIVE = 'active';
 
-    public const STATUS_INACTIVE = 'inactive';
+    public const string STATUS_INACTIVE = 'inactive';
 
     public function behaviors(): array
     {

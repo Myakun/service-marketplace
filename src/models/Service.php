@@ -30,11 +30,11 @@ use yii2tech\ar\position\PositionBehavior;
  */
 class Service extends ActiveRecord
 {
-    public const NAME_MAX_LENGTH = 50;
+    public const int NAME_MAX_LENGTH = 50;
 
-    public const STATUS_ACTIVE = 'active';
+    public const string STATUS_ACTIVE = 'active';
 
-    public const STATUS_INACTIVE = 'inactive';
+    public const string STATUS_INACTIVE = 'inactive';
 
     public function attributeLabels(): array
     {

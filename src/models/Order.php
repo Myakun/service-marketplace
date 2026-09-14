@@ -31,17 +31,17 @@ use yii\helpers\Url;
  */
 class Order extends ActiveRecord
 {
-    public const SECURITY_CODE_LENGTH = 8;
+    public const int SECURITY_CODE_LENGTH = 8;
 
-    public const STATUS_DONE = 'done';
+    public const string STATUS_DONE = 'done';
 
-    public const STATUS_NEW = 'new';
+    public const string STATUS_NEW = 'new';
 
-    public const STATUS_CALL = 'call';
+    public const string STATUS_CALL = 'call';
 
-    public const STATUS_PROCESSING = 'processing';
+    public const string STATUS_PROCESSING = 'processing';
 
-    public const STATUS_QUALITY_CHECK = 'quality-check';
+    public const string STATUS_QUALITY_CHECK = 'quality-check';
 
     public function attributeLabels(): array
     {
