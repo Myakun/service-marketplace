@@ -44,6 +44,8 @@ $config = [
         'formatter' => [
             'class' => Formatter::class,
             'dateFormat' => 'php:d.m.Y',
+            'datetimeFormat' => 'php:d.m.Y H:i',
+            'timeFormat' => 'php:H:i',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

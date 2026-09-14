@@ -5,17 +5,14 @@ declare(strict_types=1);
 namespace app\models;
 
 use app\components\behaviors\BlameableBehavior;
+use app\components\behaviors\TimestampBehavior;
 use Yii;
 use yii\base\Exception;
-use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\db\Expression;
 use yii\web\IdentityInterface;
 
 /**
- * @mixin BlameableBehavior
- *
  * @property string $created_at
  * @property int|null $created_by
  * @property User|null $createdBy
@@ -25,6 +22,9 @@ use yii\web\IdentityInterface;
  * @property string $password
  * @property string $updated_at
  * @property int|null $updated_by
+ *
+ * @mixin BlameableBehavior
+ * @mixin TimestampBehavior
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -62,12 +62,9 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             'blameable' => [
                 'class' => BlameableBehavior::class,
-                'updatedByAttribute' => false,
             ],
             'timestamp' => [
                 'class' => TimestampBehavior::class,
-                'updatedAtAttribute' => false,
-                'value' => new Expression('NOW()')
             ],
         ];
     }
