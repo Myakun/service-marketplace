@@ -6,14 +6,8 @@ namespace app\modules\admin\models\partner;
 
 use app\components\web\crud\Model;
 use app\models\Partner;
-use app\models\Producer;
-use app\models\Product;
-use app\models\Series;
-use app\models\StorageMode;
-use DateTime;
 use Yii;
 use yii\db\ActiveRecord;
-use yii\helpers\ArrayHelper;
 
 /**
  * @property Partner $entity
@@ -30,8 +24,9 @@ class Save extends Model
 
     public function __construct(
         protected ActiveRecord $entity,
-        array $config = []
-    ) {
+        array                  $config = []
+    )
+    {
         parent::__construct($this->entity, $config);
 
         /**
@@ -90,7 +85,7 @@ class Save extends Model
             ['name', 'string', 'max' => Partner::NAME_MAX_LENGTH],
 
             ['phone', 'filter', 'filter' => 'trim'],
-            ['phone', 'filter', 'filter' => function() {
+            ['phone', 'filter', 'filter' => function () {
                 return str_replace([' ', '+7', '-', '(', ')'], '', $this->phone);
             }],
             ['phone', 'required'],
