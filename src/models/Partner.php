@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace app\models;
 
+use app\components\behaviors\TimestampBehavior;
 use JetBrains\PhpStorm\ArrayShape;
 use Yii;
-use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\db\Expression;
 use yii\web\IdentityInterface;
 
 /**
@@ -21,6 +20,8 @@ use yii\web\IdentityInterface;
  * @property string $phone
  * @property float|null $rating
  * @property string $status
+ *
+ * @mixin TimestampBehavior
  */
 class Partner extends ActiveRecord implements IdentityInterface
 {
@@ -47,7 +48,7 @@ class Partner extends ActiveRecord implements IdentityInterface
         Yii::$app->mailer
             ->compose('partner/activation', [
                 'password' => $password,
-                'partner' => $this
+                'partner' => $this,
             ])
             ->setFrom(Yii::$app->params['emailFrom'])
             ->setSubject(sprintf('Активация аккаунта партнёра на сайте %s', Yii::$app->params['siteName']))
@@ -56,10 +57,10 @@ class Partner extends ActiveRecord implements IdentityInterface
     }
 
     #[ArrayShape([
-        'contact_person' => "string",
-        'email' => "string",
-        'name' => "string",
-        'phone' => "string"
+        'contact_person' => 'string',
+        'email' => 'string',
+        'name' => 'string',
+        'phone' => 'string',
     ])]
     public function attributeLabels(): array
     {
@@ -84,14 +85,13 @@ class Partner extends ActiveRecord implements IdentityInterface
         return true;
     }
 
-    #[ArrayShape(['blameable' => "array", 'timestamp' => "array"])]
+    #[ArrayShape(['blameable' => 'array', 'timestamp' => 'array'])]
     public function behaviors(): array
     {
         return [
             'timestamp' => [
                 'class' => TimestampBehavior::class,
                 'updatedAtAttribute' => false,
-                'value' => new Expression('NOW()')
             ],
         ];
     }
@@ -101,7 +101,7 @@ class Partner extends ActiveRecord implements IdentityInterface
         $orders = Order::find()
             ->andWhere([
                 'partner_id' => $this->id,
-                'status' => Order::STATUS_DONE
+                'status' => Order::STATUS_DONE,
             ])
             ->all();
 
@@ -149,8 +149,8 @@ class Partner extends ActiveRecord implements IdentityInterface
     }
 
     #[ArrayShape([
-        self::STATUS_ACTIVE => "string",
-        self::STATUS_INACTIVE => "string",
+        self::STATUS_ACTIVE => 'string',
+        self::STATUS_INACTIVE => 'string',
     ])]
     public static function getStatusOptions(): array
     {
@@ -196,9 +196,9 @@ class Partner extends ActiveRecord implements IdentityInterface
             ['name', 'string', 'max' => self::NAME_MAX_LENGTH],
 
             ['password', 'required',
-                'when' => function(self $user) {
+                'when' => function (self $user) {
                     return $user->getIsNewRecord();
-                }
+                },
             ],
 
             ['phone', 'required'],
@@ -208,7 +208,7 @@ class Partner extends ActiveRecord implements IdentityInterface
             ['rating', 'number'],
 
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE]],
-            ['status', 'default', 'value' => self::STATUS_INACTIVE]
+            ['status', 'default', 'value' => self::STATUS_INACTIVE],
         ];
     }
 

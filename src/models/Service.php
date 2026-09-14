@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace app\models;
 
+use app\components\behaviors\BlameableBehavior;
+use app\components\behaviors\TimestampBehavior;
 use JetBrains\PhpStorm\ArrayShape;
-use Yii;
-use yii\behaviors\BlameableBehavior;
-use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\db\Expression;
 use yii2tech\ar\position\PositionBehavior;
 
 /**
@@ -22,6 +20,10 @@ use yii2tech\ar\position\PositionBehavior;
  * @property string $name
  * @property Price[] $prices
  * @property int $position
+ *
+ * @mixin BlameableBehavior
+ * @mixin PositionBehavior
+ * @mixin TimestampBehavior
  */
 class Service extends ActiveRecord
 {
@@ -31,7 +33,7 @@ class Service extends ActiveRecord
 
     public const STATUS_INACTIVE = 'inactive';
 
-    #[ArrayShape(['category_id' => "string", 'description' => "string", 'name' => "string"])]
+    #[ArrayShape(['category_id' => 'string', 'description' => 'string', 'name' => 'string'])]
     public function attributeLabels(): array
     {
         return [
@@ -41,7 +43,7 @@ class Service extends ActiveRecord
         ];
     }
 
-    #[ArrayShape(['blameable' => "array", 'position' => "string[]", 'timestamp' => "array"])]
+    #[ArrayShape(['blameable' => 'array', 'position' => 'string[]', 'timestamp' => 'array'])]
     public function behaviors(): array
     {
         return [
@@ -56,7 +58,6 @@ class Service extends ActiveRecord
             'timestamp' => [
                 'class' => TimestampBehavior::class,
                 'updatedAtAttribute' => false,
-                'value' => new Expression('NOW()')
             ],
         ];
     }
@@ -128,7 +129,7 @@ class Service extends ActiveRecord
             ['category_id', 'integer'],
             ['category_id', 'exist',
                 'targetClass' => Category::class,
-                'targetAttribute' => 'id'
+                'targetAttribute' => 'id',
             ],
 
             ['description', 'string'],
@@ -138,7 +139,7 @@ class Service extends ActiveRecord
             ['name', 'unique', 'targetAttribute' => ['category_id', 'name']],
 
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE]],
-            ['status', 'default', 'value' => self::STATUS_ACTIVE]
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
         ];
     }
 

@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace app\models;
 
+use app\components\behaviors\TimestampBehavior;
 use JetBrains\PhpStorm\ArrayShape;
 use Yii;
-use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\db\Expression;
 use yii\helpers\Url;
 
 /**
@@ -26,6 +25,8 @@ use yii\helpers\Url;
  * @property Service $service
  * @property int $service_id
  * @property string $status
+ *
+ * @mixin TimestampBehavior
  */
 class Order extends ActiveRecord
 {
@@ -42,11 +43,11 @@ class Order extends ActiveRecord
     public const STATUS_QUALITY_CHECK = 'quality-check';
 
     #[ArrayShape([
-        'customer_id' => "string",
-        'partner_id' => "string",
-        'price' => "string",
-        'service_id' => "string",
-        'status' => "string"
+        'customer_id' => 'string',
+        'partner_id' => 'string',
+        'price' => 'string',
+        'service_id' => 'string',
+        'status' => 'string',
     ])]
     public function attributeLabels(): array
     {
@@ -72,14 +73,13 @@ class Order extends ActiveRecord
         return true;
     }
 
-    #[ArrayShape(['blameable' => "array", 'position' => "string[]", 'timestamp' => "array"])]
+    #[ArrayShape(['blameable' => 'array', 'position' => 'string[]', 'timestamp' => 'array'])]
     public function behaviors(): array
     {
         return [
             'timestamp' => [
                 'class' => TimestampBehavior::class,
                 'updatedAtAttribute' => false,
-                'value' => new Expression('NOW()')
             ],
         ];
     }
@@ -108,7 +108,7 @@ class Order extends ActiveRecord
         return $this
             ->hasOne(Offer::class, [
                 'order_id' => 'id',
-                'partner_id' => 'partner_id'
+                'partner_id' => 'partner_id',
             ]);
     }
 
@@ -172,13 +172,13 @@ class Order extends ActiveRecord
             ['customer_id', 'integer'],
             ['customer_id', 'exist',
                 'targetClass' => Customer::class,
-                'targetAttribute' => 'id'
+                'targetAttribute' => 'id',
             ],
 
             ['partner_id', 'integer'],
             ['partner_id', 'exist',
                 'targetClass' => Partner::class,
-                'targetAttribute' => 'id'
+                'targetAttribute' => 'id',
             ],
             ['partner_id', 'default', 'value' => null],
 
@@ -192,14 +192,14 @@ class Order extends ActiveRecord
             ['service_id', 'integer'],
             ['service_id', 'exist',
                 'targetClass' => Service::class,
-                'targetAttribute' => 'id'
+                'targetAttribute' => 'id',
             ],
 
             ['rating', 'integer', 'min' => 0, 'max' => 5],
             ['rating', 'default', 'value' => null],
 
             ['status', 'in', 'range' => [
-                self::STATUS_CALL, self::STATUS_DONE, self::STATUS_NEW, self::STATUS_PROCESSING, self::STATUS_QUALITY_CHECK]
+                self::STATUS_CALL, self::STATUS_DONE, self::STATUS_NEW, self::STATUS_PROCESSING, self::STATUS_QUALITY_CHECK],
             ],
             ['status', 'default', 'value' => self::STATUS_NEW],
         ];
@@ -221,7 +221,8 @@ class Order extends ActiveRecord
             ])
             ->setFrom(Yii::$app->params['emailFrom'])
             ->setSubject(
-                sprintf('%s - необходимо провести контроль качества заказа №%d',
+                sprintf(
+                    '%s - необходимо провести контроль качества заказа №%d',
                     Yii::$app->params['siteName'],
                     $this->id
                 )
