@@ -38,7 +38,14 @@ class User extends ActiveRecord implements IdentityInterface
         }
 
         if ($insert || $this->isAttributeChanged('password')) {
-            $this->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
+            try {
+                $this->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
+            } catch (Exception $e) {
+                Yii::error("Can't hash user password: {$e->getMessage()}");
+                $this->addError('password', Yii::t('app', "Can't update user password"));
+
+                return false;
+            }
         }
 
         return true;
