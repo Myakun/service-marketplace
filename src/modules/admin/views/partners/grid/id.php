@@ -13,6 +13,6 @@ use app\models\Partner;
 <?php echo $partner->id; ?>
 <br>
 <small class="text-muted">
-    Создан
+    <?php echo Yii::t('app', 'Created at'); ?>
     <?php echo Yii::$app->formatter->asDatetime($partner->created_at); ?>
 </small>

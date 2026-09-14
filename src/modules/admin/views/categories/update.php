@@ -11,7 +11,7 @@ use app\widgets\FormSubmit\FormSubmit;
  * @var \app\modules\admin\models\category\Save $model
  */
 
-$this->title = sprintf('Категория %s', $model->name)
+$this->title = Yii::t('app', 'Category {name}', ['name' => $model->name])
 
 ?>
 

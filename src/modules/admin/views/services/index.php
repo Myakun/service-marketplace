@@ -10,7 +10,7 @@ use yii\helpers\Html;
  * @var \app\modules\admin\models\service\Index $filterModel
  */
 
-$this->title = 'Услуги';
+$this->title = Yii::t('app', 'Services');
 
 $useSorting = true;
 
@@ -37,6 +37,6 @@ $useSorting = true;
     ],
     'summary' => false,
     'toolbar' => [
-        'content' => Html::a('Создать', ['create'], ['class' => 'btn btn-success'])
+        'content' => Html::a(Yii::t('app', 'Create'), ['create'], ['class' => 'btn btn-success'])
     ]
 ]); ?>

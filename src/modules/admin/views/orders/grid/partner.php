@@ -8,10 +8,10 @@ declare(strict_types=1);
 
 ?>
 
-<b>Название:</b> <?php echo $partner->name; ?>
+<b><?php echo Yii::t('app', 'Name'); ?>:</b> <?php echo $partner->name; ?>
 <br>
-<b>Контактное лицо:</b> <?php echo $partner->contact_person; ?>
+<b><?php echo Yii::t('app', 'Contact person'); ?>:</b> <?php echo $partner->contact_person; ?>
 <br>
-<b>Телефон:</b> <?php echo Yii::$app->formatter->formatPhone($partner->phone); ?>
+<b><?php echo Yii::t('app', 'Phone'); ?>:</b> <?php echo Yii::$app->formatter->formatPhone($partner->phone); ?>
 <br>
-<b>Email:</b> <?php echo $partner->email; ?>
+<b><?php echo Yii::t('app', 'Email'); ?>:</b> <?php echo $partner->email; ?>

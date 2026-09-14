@@ -14,11 +14,11 @@ use app\models\Partner;
 <?php if (Partner::STATUS_INACTIVE == $partner->status) {  ?>
     <br>
     <br>
-    <button class="btn btn-primary btn-sm activate-partner">Активировать</button>
+    <button class="btn btn-primary btn-sm activate-partner"><?php echo Yii::t('app', 'Activate'); ?></button>
 <?php } else { ?>
     <br>
     <br>
-    <button class="btn btn-primary btn-danger btn-sm deactivate-partner">Деактивировать</button>
+    <button class="btn btn-primary btn-danger btn-sm deactivate-partner"><?php echo Yii::t('app', 'Deactivate'); ?></button>
 <?php } ?>
 
 

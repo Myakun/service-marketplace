@@ -9,7 +9,7 @@ use app\widgets\FormSubmit\FormSubmit;
  * @var app\modules\admin\models\category\Save $model
  */
 
-$this->title = 'Новая категория';
+$this->title = Yii::t('app', 'New category');
 
 ?>
 

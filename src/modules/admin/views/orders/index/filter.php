@@ -14,7 +14,7 @@ use app\modules\admin\models\order\Index;
 <div class="card">
     <div class="card-header <?php if ($model->filterEnabled()) { ?>bg-primary text-white<?php } ?>">
         <div class="panel-title">
-            Фильтр <?php if ($model->filterEnabled()) { ?>применен<?php } ?>
+            <?php echo Yii::t('app', $model->filterEnabled() ? 'Filter applied' : 'Filter'); ?>
         </div>
     </div>
     <?php $form = ActiveForm::begin(['method'=>'get']); ?>
@@ -35,9 +35,9 @@ use app\modules\admin\models\order\Index;
         </div>
 
         <div class="d-flex justify-content-between mt-4">
-            <button class="btn btn-primary" type="submit">Применить фильтр</button>
+            <button class="btn btn-primary" type="submit"><?php echo Yii::t('app', 'Apply filter'); ?></button>
             <?php if ($model->filterEnabled()) { ?>
-                <a class="btn btn-danger" href="/admin/orders/index">Сбросить фильтр</a>
+                <a class="btn btn-danger" href="/admin/orders/index"><?php echo Yii::t('app', 'Reset filter'); ?></a>
             <?php } ?>
         </div>
     </div>
