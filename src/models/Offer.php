@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace app\models;
 
-use JetBrains\PhpStorm\ArrayShape;
-use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\db\Expression;
 
 /**
  * @property int $id
@@ -37,14 +34,14 @@ class Offer extends ActiveRecord
             ['order_id', 'integer'],
             ['order_id', 'exist',
                 'targetClass' => Partner::class,
-                'targetAttribute' => 'id'
+                'targetAttribute' => 'id',
             ],
 
             ['partner_id', 'required'],
             ['partner_id', 'integer'],
             ['partner_id', 'exist',
                 'targetClass' => Partner::class,
-                'targetAttribute' => 'id'
+                'targetAttribute' => 'id',
             ],
             ['partner_id', 'unique', 'targetAttribute' => ['order_id', 'partner_id']],
 

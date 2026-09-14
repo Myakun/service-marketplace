@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace app\models;
 
+use app\components\behaviors\TimestampBehavior;
 use JetBrains\PhpStorm\ArrayShape;
 use Yii;
-use yii\behaviors\BlameableBehavior;
-use yii\behaviors\TimestampBehavior;
-use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\db\Expression;
 use yii\web\IdentityInterface;
 
 /**
@@ -20,6 +17,8 @@ use yii\web\IdentityInterface;
  * @property string $password
  * @property string $phone
  * @property string $status
+ *
+ * @mixin TimestampBehavior
  */
 class Customer extends ActiveRecord implements IdentityInterface
 {
@@ -34,9 +33,9 @@ class Customer extends ActiveRecord implements IdentityInterface
     public const STATUS_INACTIVE = 'inactive';
 
     #[ArrayShape([
-        'email' => "string",
-        'name' => "string",
-        'phone' => "string"
+        'email' => 'string',
+        'name' => 'string',
+        'phone' => 'string',
     ])]
     public function attributeLabels(): array
     {
@@ -60,14 +59,13 @@ class Customer extends ActiveRecord implements IdentityInterface
         return true;
     }
 
-    #[ArrayShape(['blameable' => "array", 'timestamp' => "array"])]
+    #[ArrayShape(['blameable' => 'array', 'timestamp' => 'array'])]
     public function behaviors(): array
     {
         return [
             'timestamp' => [
                 'class' => TimestampBehavior::class,
                 'updatedAtAttribute' => false,
-                'value' => new Expression('NOW()')
             ],
         ];
     }
@@ -120,9 +118,9 @@ class Customer extends ActiveRecord implements IdentityInterface
             ['name', 'default', 'value' => null],
 
             ['password', 'required',
-                'when' => function(self $user) {
+                'when' => function (self $user) {
                     return $user->getIsNewRecord();
-                }
+                },
             ],
 
             ['phone', 'string', 'length' => self::PHONE_LENGTH],
@@ -130,7 +128,7 @@ class Customer extends ActiveRecord implements IdentityInterface
             ['phone', 'default', 'value' => null],
 
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE]],
-            ['status', 'default', 'value' => self::STATUS_ACTIVE]
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
         ];
     }
 

@@ -107,7 +107,7 @@ class User extends ActiveRecord implements IdentityInterface
             ['password', 'required',
                 'when' => function (self $user) {
                     return $user->getIsNewRecord();
-                }
+                },
             ],
         ];
     }

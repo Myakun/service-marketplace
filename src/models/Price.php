@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace app\models;
 
+use app\components\behaviors\TimestampBehavior;
 use JetBrains\PhpStorm\ArrayShape;
-use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\db\Expression;
 
 /**
  * @property int $id
@@ -17,6 +16,8 @@ use yii\db\Expression;
  * @property int $price
  * @property int $service_id
  * @property string $status
+ *
+ * @mixin TimestampBehavior
  */
 class Price extends ActiveRecord
 {
@@ -24,14 +25,13 @@ class Price extends ActiveRecord
 
     public const STATUS_INACTIVE = 'inactive';
 
-    #[ArrayShape(['blameable' => "array", 'position' => "string[]", 'timestamp' => "array"])]
+    #[ArrayShape(['blameable' => 'array', 'position' => 'string[]', 'timestamp' => 'array'])]
     public function behaviors(): array
     {
         return [
             'timestamp' => [
                 'class' => TimestampBehavior::class,
                 'updatedAtAttribute' => false,
-                'value' => new Expression('NOW()')
             ],
         ];
     }
@@ -48,7 +48,7 @@ class Price extends ActiveRecord
             ['partner_id', 'integer'],
             ['partner_id', 'exist',
                 'targetClass' => Partner::class,
-                'targetAttribute' => 'id'
+                'targetAttribute' => 'id',
             ],
 
             ['price', 'required'],
@@ -58,7 +58,7 @@ class Price extends ActiveRecord
             ['service_id', 'integer'],
             ['service_id', 'exist',
                 'targetClass' => Service::class,
-                'targetAttribute' => 'id'
+                'targetAttribute' => 'id',
             ],
             ['service_id', 'unique', 'targetAttribute' => ['partner_id', 'service_id']],
 
