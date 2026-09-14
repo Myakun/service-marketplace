@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\models;
 
 use app\components\behaviors\TimestampBehavior;
-use JetBrains\PhpStorm\ArrayShape;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
@@ -24,21 +23,16 @@ use yii\web\IdentityInterface;
  */
 class Customer extends ActiveRecord implements IdentityInterface
 {
-    public const NAME_MAX_LENGTH = 150;
+    public const int NAME_MAX_LENGTH = 150;
 
-    public const PASSWORD_MIN_LENGTH = 8;
+    public const int PASSWORD_MIN_LENGTH = 8;
 
-    public const PHONE_LENGTH = 10;
+    public const int PHONE_LENGTH = 10;
 
-    public const STATUS_ACTIVE = 'active';
+    public const string STATUS_ACTIVE = 'active';
 
-    public const STATUS_INACTIVE = 'inactive';
+    public const string STATUS_INACTIVE = 'inactive';
 
-    #[ArrayShape([
-        'email' => 'string',
-        'name' => 'string',
-        'phone' => 'string',
-    ])]
     public function attributeLabels(): array
     {
         return [
@@ -61,7 +55,6 @@ class Customer extends ActiveRecord implements IdentityInterface
         return true;
     }
 
-    #[ArrayShape(['blameable' => 'array', 'timestamp' => 'array'])]
     public function behaviors(): array
     {
         return [

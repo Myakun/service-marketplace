@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\models;
 
 use app\components\behaviors\TimestampBehavior;
-use JetBrains\PhpStorm\ArrayShape;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
@@ -23,11 +22,10 @@ use yii\db\ActiveRecord;
  */
 class Price extends ActiveRecord
 {
-    public const STATUS_ACTIVE = 'active';
+    public const string STATUS_ACTIVE = 'active';
 
-    public const STATUS_INACTIVE = 'inactive';
+    public const string STATUS_INACTIVE = 'inactive';
 
-    #[ArrayShape(['blameable' => 'array', 'position' => 'string[]', 'timestamp' => 'array'])]
     public function behaviors(): array
     {
         return [

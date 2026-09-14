@@ -6,7 +6,6 @@ namespace app\models;
 
 use app\components\behaviors\BlameableBehavior;
 use app\components\behaviors\TimestampBehavior;
-use JetBrains\PhpStorm\ArrayShape;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii2tech\ar\position\PositionBehavior;
@@ -28,13 +27,12 @@ use yii2tech\ar\position\PositionBehavior;
  */
 class Category extends ActiveRecord
 {
-    public const NAME_MAX_LENGTH = 50;
+    public const int NAME_MAX_LENGTH = 50;
 
-    public const STATUS_ACTIVE = 'active';
+    public const string STATUS_ACTIVE = 'active';
 
-    public const STATUS_INACTIVE = 'inactive';
+    public const string STATUS_INACTIVE = 'inactive';
 
-    #[ArrayShape(['name' => 'string'])]
     public function attributeLabels(): array
     {
         return [
@@ -42,7 +40,6 @@ class Category extends ActiveRecord
         ];
     }
 
-    #[ArrayShape(['blameable' => 'array', 'position' => 'string[]', 'timestamp' => 'array'])]
     public function behaviors(): array
     {
         return [

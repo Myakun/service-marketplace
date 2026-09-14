@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\modules\partner\models\partner;
 
 use app\models\Partner;
-use JetBrains\PhpStorm\ArrayShape;
 use Yii;
 use yii\base\Model;
 
@@ -19,12 +18,6 @@ class Registration extends Model
 
     public ?string $phone = null;
 
-    #[ArrayShape([
-        'contactPerson' => "string",
-        'email' => "string",
-        'name' => "string",
-        'phone' => "string"
-    ])]
     public function attributeLabels(): array
     {
         $labels = (new Partner())->attributeLabels();

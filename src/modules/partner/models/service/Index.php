@@ -7,7 +7,6 @@ namespace app\modules\partner\models\service;
 use app\components\base\FilterModel;
 use app\models\Category;
 use app\modules\partner\models\Service;
-use JetBrains\PhpStorm\ArrayShape;
 use yii\db\ActiveQuery;
 
 class Index extends FilterModel
@@ -16,7 +15,6 @@ class Index extends FilterModel
 
     public ?string $name = null;
 
-    #[ArrayShape(['categoryId' => "string", 'name' => "string"])]
     public function attributeLabels(): array
     {
         $labels = (new Service())->attributeLabels();

@@ -6,7 +6,6 @@ namespace app\modules\admin\models\user;
 
 use app\models\User;
 use himiklab\yii2\recaptcha\ReCaptchaValidator3;
-use JetBrains\PhpStorm\ArrayShape;
 use yii\base\Model;
 use Yii;
 

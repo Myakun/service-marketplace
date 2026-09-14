@@ -6,7 +6,6 @@ namespace app\modules\admin\models\category;
 
 use app\models\Category;
 use app\components\web\crud\Model;
-use JetBrains\PhpStorm\ArrayShape;
 use yii\db\ActiveRecord;
 
 class Save extends Model
@@ -30,9 +29,6 @@ class Save extends Model
         $this->name = $entity->name;
     }
 
-    #[ArrayShape([
-        'name' => "string",
-    ])]
     public function attributeLabels(): array
     {
         $labels = (new Category())->attributeLabels();

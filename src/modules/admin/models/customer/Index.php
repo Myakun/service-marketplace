@@ -6,7 +6,6 @@ namespace app\modules\admin\models\customer;
 
 use app\components\base\FilterModel;
 use app\models\Customer;
-use JetBrains\PhpStorm\ArrayShape;
 use yii\db\ActiveQuery;
 
 class Index extends FilterModel
@@ -17,11 +16,6 @@ class Index extends FilterModel
 
     public ?string $phone = null;
 
-    #[ArrayShape([
-        'email' => "string",
-        'name' => "string",
-        'phone' => "string"
-    ])]
     public function attributeLabels(): array
     {
         $labels = (new Customer())->attributeLabels();

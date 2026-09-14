@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\models;
 
 use app\components\behaviors\TimestampBehavior;
-use JetBrains\PhpStorm\ArrayShape;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -32,25 +31,18 @@ use yii\helpers\Url;
  */
 class Order extends ActiveRecord
 {
-    public const SECURITY_CODE_LENGTH = 8;
+    public const int SECURITY_CODE_LENGTH = 8;
 
-    public const STATUS_DONE = 'done';
+    public const string STATUS_DONE = 'done';
 
-    public const STATUS_NEW = 'new';
+    public const string STATUS_NEW = 'new';
 
-    public const STATUS_CALL = 'call';
+    public const string STATUS_CALL = 'call';
 
-    public const STATUS_PROCESSING = 'processing';
+    public const string STATUS_PROCESSING = 'processing';
 
-    public const STATUS_QUALITY_CHECK = 'quality-check';
+    public const string STATUS_QUALITY_CHECK = 'quality-check';
 
-    #[ArrayShape([
-        'customer_id' => 'string',
-        'partner_id' => 'string',
-        'price' => 'string',
-        'service_id' => 'string',
-        'status' => 'string',
-    ])]
     public function attributeLabels(): array
     {
         return [
@@ -75,7 +67,6 @@ class Order extends ActiveRecord
         return true;
     }
 
-    #[ArrayShape(['blameable' => 'array', 'position' => 'string[]', 'timestamp' => 'array'])]
     public function behaviors(): array
     {
         return [
