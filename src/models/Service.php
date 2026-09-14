@@ -6,7 +6,6 @@ namespace app\models;
 
 use app\components\behaviors\BlameableBehavior;
 use app\components\behaviors\TimestampBehavior;
-use JetBrains\PhpStorm\ArrayShape;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii2tech\ar\position\PositionBehavior;
@@ -37,7 +36,6 @@ class Service extends ActiveRecord
 
     public const STATUS_INACTIVE = 'inactive';
 
-    #[ArrayShape(['category_id' => 'string', 'description' => 'string', 'name' => 'string'])]
     public function attributeLabels(): array
     {
         return [
@@ -47,7 +45,6 @@ class Service extends ActiveRecord
         ];
     }
 
-    #[ArrayShape(['blameable' => 'array', 'position' => 'string[]', 'timestamp' => 'array'])]
     public function behaviors(): array
     {
         return [

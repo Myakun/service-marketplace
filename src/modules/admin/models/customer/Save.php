@@ -11,7 +11,6 @@ use app\models\Product;
 use app\models\Series;
 use app\models\StorageMode;
 use DateTime;
-use JetBrains\PhpStorm\ArrayShape;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
@@ -46,11 +45,6 @@ class Save extends Model
         $this->phone = Yii::$app->formatter->formatPhone($entity->phone);
     }
 
-    #[ArrayShape([
-        'email' => "string",
-        'name' => "string",
-        'phone' => "string"
-    ])]
     public function attributeLabels(): array
     {
         $labels = (new Customer())->attributeLabels();

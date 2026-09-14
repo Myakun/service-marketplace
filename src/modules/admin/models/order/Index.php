@@ -7,7 +7,6 @@ namespace app\modules\admin\models\order;
 use app\components\base\FilterModel;
 use app\models\Order;
 use app\models\Partner;
-use JetBrains\PhpStorm\ArrayShape;
 use Yii;
 use yii\db\ActiveQuery;
 
@@ -21,7 +20,6 @@ class Index extends FilterModel
 
     public ?string $status = null;
 
-    #[ArrayShape(['customer' => "string", 'partner' => "string", 'status' => "string"])]
     public function attributeLabels(): array
     {
         $labels = (new Order())->attributeLabels();
@@ -33,12 +31,6 @@ class Index extends FilterModel
         ];
     }
 
-    #[ArrayShape([
-        Order::STATUS_DONE => "string",
-        Order::STATUS_CALL => "string",
-        Order::STATUS_PROCESSING => "string",
-        Order::STATUS_QUALITY_CHECK => "string"
-    ])]
     public static function getStatusOptions(): array
     {
         return [

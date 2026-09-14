@@ -6,7 +6,6 @@ namespace app\models\customer;
 
 use app\models\Customer;
 use app\components\web\crud\Model;
-use JetBrains\PhpStorm\ArrayShape;
 use yii\db\ActiveRecord;
 
 class Profile extends Model
@@ -32,7 +31,6 @@ class Profile extends Model
         $this->phone = $entity->phone;
     }
 
-    #[ArrayShape(['email' => "string", 'name' => "string", 'phone' => "string"])]
     public function attributeLabels(): array
     {
         $labels = (new Customer())->attributeLabels();

@@ -6,7 +6,6 @@ namespace app\modules\admin\models\partner;
 
 use app\components\base\FilterModel;
 use app\models\Partner;
-use JetBrains\PhpStorm\ArrayShape;
 use yii\db\ActiveQuery;
 
 class Index extends FilterModel
@@ -19,12 +18,6 @@ class Index extends FilterModel
 
     public ?string $phone = null;
 
-    #[ArrayShape([
-        'contactPerson' => "string",
-        'email' => "string",
-        'name' => "string",
-        'phone' => "string"
-    ])]
     public function attributeLabels(): array
     {
         $labels = (new Partner())->attributeLabels();

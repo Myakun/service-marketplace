@@ -7,7 +7,6 @@ namespace app\modules\admin\models\service;
 use app\models\Category;
 use app\models\Service;
 use app\components\web\crud\Model;
-use JetBrains\PhpStorm\ArrayShape;
 use yii\db\ActiveRecord;
 
 class Save extends Model
@@ -38,7 +37,6 @@ class Save extends Model
     }
 
 
-    #[ArrayShape(['categoryId' => "string", 'description' => "string", 'name' => "string"])]
     public function attributeLabels(): array
     {
         $labels = (new Service())->attributeLabels();

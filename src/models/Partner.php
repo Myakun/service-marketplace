@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\models;
 
 use app\components\behaviors\TimestampBehavior;
-use JetBrains\PhpStorm\ArrayShape;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -58,12 +57,6 @@ class Partner extends ActiveRecord implements IdentityInterface
             ->send();
     }
 
-    #[ArrayShape([
-        'contact_person' => 'string',
-        'email' => 'string',
-        'name' => 'string',
-        'phone' => 'string',
-    ])]
     public function attributeLabels(): array
     {
         return [
@@ -87,7 +80,6 @@ class Partner extends ActiveRecord implements IdentityInterface
         return true;
     }
 
-    #[ArrayShape(['blameable' => 'array', 'timestamp' => 'array'])]
     public function behaviors(): array
     {
         return [
@@ -149,10 +141,6 @@ class Partner extends ActiveRecord implements IdentityInterface
         return $this->getPrimaryKey();
     }
 
-    #[ArrayShape([
-        self::STATUS_ACTIVE => 'string',
-        self::STATUS_INACTIVE => 'string',
-    ])]
     public static function getStatusOptions(): array
     {
         return [

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace app\models;
 
 use app\components\behaviors\TimestampBehavior;
-use JetBrains\PhpStorm\ArrayShape;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -44,13 +43,6 @@ class Order extends ActiveRecord
 
     public const STATUS_QUALITY_CHECK = 'quality-check';
 
-    #[ArrayShape([
-        'customer_id' => 'string',
-        'partner_id' => 'string',
-        'price' => 'string',
-        'service_id' => 'string',
-        'status' => 'string',
-    ])]
     public function attributeLabels(): array
     {
         return [
@@ -75,7 +67,6 @@ class Order extends ActiveRecord
         return true;
     }
 
-    #[ArrayShape(['blameable' => 'array', 'position' => 'string[]', 'timestamp' => 'array'])]
     public function behaviors(): array
     {
         return [
