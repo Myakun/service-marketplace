@@ -12,14 +12,16 @@ use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
 /**
- * @property string $email
  * @property string $contact_person
+ * @property string $created_at
+ * @property string $email
  * @property int $id
  * @property string $name
  * @property string $password
  * @property string $phone
  * @property float|null $rating
  * @property string $status
+ * @property string $updated_at
  *
  * @mixin TimestampBehavior
  */
@@ -91,7 +93,6 @@ class Partner extends ActiveRecord implements IdentityInterface
         return [
             'timestamp' => [
                 'class' => TimestampBehavior::class,
-                'updatedAtAttribute' => false,
             ],
         ];
     }

@@ -23,17 +23,15 @@ class m220602_093307_users extends Migration
             'password' => $this->string(100)->notNull(),
             'created_at' => $this->dateTime()->notNull(),
             'created_by' => $this->integer()->defaultValue(null),
-            'updated_at' => $this->dateTime()->notNull(),
-            'updated_by' => $this->integer()->defaultValue(null)
         ]);
 
-        $user = new User();
-        $user->setAttributes([
+        // Plain insert on purpose: the model's behaviors and rules evolve with later migrations.
+        $this->insert(User::tableName(), [
             'email' => 'admin@example.com',
-            'name' => Yii::t('app', 'Administrator'),
-            'password' => 'admin'
+            'name' => 'Administrator',
+            'password' => Yii::$app->getSecurity()->generatePasswordHash('admin'),
+            'created_at' => gmdate('Y-m-d H:i:s'),
         ]);
-        $user->save();
 
         return true;
     }
