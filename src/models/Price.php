@@ -10,12 +10,14 @@ use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
+ * @property string $created_at
  * @property int $id
  * @property Partner $partner
  * @property int $partner_id
  * @property int $price
  * @property int $service_id
  * @property string $status
+ * @property string $updated_at
  *
  * @mixin TimestampBehavior
  */
@@ -31,7 +33,6 @@ class Price extends ActiveRecord
         return [
             'timestamp' => [
                 'class' => TimestampBehavior::class,
-                'updatedAtAttribute' => false,
             ],
         ];
     }

@@ -12,11 +12,15 @@ use yii\db\ActiveRecord;
 use yii2tech\ar\position\PositionBehavior;
 
 /**
+ * @property string $created_at
+ * @property int $created_by
  * @property User $createdBy
  * @property int $id
  * @property string $name
  * @property int $position
  * @property Service[] $services
+ * @property string $updated_at
+ * @property int|null $updated_by
  *
  * @mixin BlameableBehavior
  * @mixin PositionBehavior
@@ -44,14 +48,12 @@ class Category extends ActiveRecord
         return [
             'blameable' => [
                 'class' => BlameableBehavior::class,
-                'updatedByAttribute' => false,
             ],
             'position' => [
                 'class' => PositionBehavior::class,
             ],
             'timestamp' => [
                 'class' => TimestampBehavior::class,
-                'updatedAtAttribute' => false,
             ],
         ];
     }

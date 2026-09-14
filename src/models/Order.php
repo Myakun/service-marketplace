@@ -12,6 +12,7 @@ use yii\db\ActiveRecord;
 use yii\helpers\Url;
 
 /**
+ * @property string $created_at
  * @property Customer $customer
  * @property int $customer_id
  * @property int $id
@@ -25,6 +26,7 @@ use yii\helpers\Url;
  * @property Service $service
  * @property int $service_id
  * @property string $status
+ * @property string $updated_at
  *
  * @mixin TimestampBehavior
  */
@@ -79,7 +81,6 @@ class Order extends ActiveRecord
         return [
             'timestamp' => [
                 'class' => TimestampBehavior::class,
-                'updatedAtAttribute' => false,
             ],
         ];
     }
