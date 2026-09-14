@@ -7,9 +7,10 @@ use app\widgets\FormSubmit\FormSubmit;
 
 /**
  * @var app\modules\admin\models\user\Save $model
+ * @var app\components\web\View $this
  */
 
-$this->title = 'Новый администратор';
+$this->title = Yii::t('app', 'New administrator')
 
 ?>
 
@@ -20,8 +21,8 @@ $this->title = 'Новый администратор';
     <?php $form = ActiveForm::begin(); ?>
     <div class="card-body">
         <?php echo $this->render('save/form', [
-            'form' => $form,
-            'model' => $model,
+                'form' => $form,
+                'model' => $model,
         ]); ?>
     </div>
     <div class="card-footer">

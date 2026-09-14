@@ -32,9 +32,20 @@ $config = [
         'errorHandler' => [
             'discardExistingOutput' => !YII_DEBUG
         ],
+        'i18n' => [
+            'translations' => [
+                'app' => [
+                    'class' => yii\i18n\PhpMessageSource::class,
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en',
+                ],
+            ],
+        ],
         'formatter' => [
             'class' => Formatter::class,
             'dateFormat' => 'php:d.m.Y',
+            'datetimeFormat' => 'php:d.m.Y H:i',
+            'timeFormat' => 'php:H:i',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -56,8 +67,9 @@ $config = [
         ],
     ],
     'id' => 'warehouse',
-    'language' => 'ru',
+    'language' => 'en',
     'params' => $params['params'],
+    'sourceLanguage' => 'en',
     'timeZone' => 'Europe/Moscow',
 ];
 

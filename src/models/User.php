@@ -4,33 +4,36 @@ declare(strict_types=1);
 
 namespace app\models;
 
-use JetBrains\PhpStorm\ArrayShape;
+use app\components\behaviors\BlameableBehavior;
+use app\components\behaviors\TimestampBehavior;
 use Yii;
-use yii\behaviors\BlameableBehavior;
-use yii\behaviors\TimestampBehavior;
+use yii\base\Exception;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\db\Expression;
 use yii\web\IdentityInterface;
 
 /**
+ * @property string $created_at
+ * @property int|null $created_by
  * @property User|null $createdBy
  * @property string $email
  * @property int $id
  * @property string $name
  * @property string $password
+ * @property string $updated_at
+ * @property int|null $updated_by
+ *
+ * @mixin BlameableBehavior
+ * @mixin TimestampBehavior
  */
 class User extends ActiveRecord implements IdentityInterface
 {
-    public const NAME_MAX_LENGTH = 100;
+    public const int NAME_MAX_LENGTH = 100;
 
-    public const PASSWORD_MIN_LENGTH = 8;
-
-    #[ArrayShape(['name' => "string"])]
     public function attributeLabels(): array
     {
         return [
-            'name' => 'Имя',
+            'name' => Yii::t('app', 'Name'),
         ];
     }
 
@@ -41,24 +44,27 @@ class User extends ActiveRecord implements IdentityInterface
         }
 
         if ($insert || $this->isAttributeChanged('password')) {
-            $this->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
+            try {
+                $this->password = Yii::$app->getSecurity()->generatePasswordHash($this->password);
+            } catch (Exception $e) {
+                Yii::error("Can't hash user password: {$e->getMessage()}");
+                $this->addError('password', Yii::t('app', "Can't update user password"));
+
+                return false;
+            }
         }
 
         return true;
     }
 
-    #[ArrayShape(['blameable' => "array", 'timestamp' => "array"])]
     public function behaviors(): array
     {
         return [
             'blameable' => [
                 'class' => BlameableBehavior::class,
-                'updatedByAttribute' => false,
             ],
             'timestamp' => [
                 'class' => TimestampBehavior::class,
-                'updatedAtAttribute' => false,
-                'value' => new Expression('NOW()')
             ],
         ];
     }
@@ -99,7 +105,7 @@ class User extends ActiveRecord implements IdentityInterface
             ['name', 'string', 'max' => self::NAME_MAX_LENGTH],
 
             ['password', 'required',
-                'when' => function(self $user) {
+                'when' => function (self $user) {
                     return $user->getIsNewRecord();
                 }
             ],

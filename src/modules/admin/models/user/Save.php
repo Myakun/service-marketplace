@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\models\user;
+namespace app\modules\admin\models\user;
 
 use app\models\User;
 use app\components\web\crud\Model;

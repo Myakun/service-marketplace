@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace app\modules\admin\controllers;
 
 use app\models\User;
-use app\modules\admin\models\user\Login;
+use app\modules\admin\models\user\AdminLogin;
 use JetBrains\PhpStorm\ArrayShape;
 use Yii;
 use yii\filters\AccessControl;
@@ -20,7 +20,7 @@ class UserController extends Controller
 
     public function actionLogin(): Response
     {
-        $model = new Login();
+        $model = new AdminLogin();
 
         $attributes = Yii::$app->getRequest()->post();
         if ($model->load($attributes) && $model->validate()) {

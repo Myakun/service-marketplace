@@ -6,7 +6,7 @@ namespace app\components\assets;
 
 use yii\web\AssetBundle;
 
-class FontAwesome extends AssetBundle
+final class FontAwesome extends AssetBundle
 {
     public $sourcePath = '@vendor/components/font-awesome';
 

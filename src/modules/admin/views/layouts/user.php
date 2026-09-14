@@ -11,7 +11,7 @@ use yii\helpers\Html;
 $this->beginPage();
 ?>
 <!doctype html>
-<html lang="ru">
+<html lang="<?php echo Yii::$app->language; ?>">
 <head>
     <?php $scheme = Yii::$app->getRequest()->getIsSecureConnection() ? 'https' : 'http'; ?>
     <base href="<?php echo $scheme . '://' . Yii::$app->getRequest()->getServerName() . Yii::$app->getRequest()->getBaseUrl(); ?>">
