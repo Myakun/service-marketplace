@@ -13,10 +13,11 @@ use app\models\User;
 <?php echo $user->id; ?>
 <br>
 <small class="text-muted">
-    Создан
-    <?php echo Yii::$app->formatter->asDatetime($user->created_at); ?>
-    <?php if (null != $user->created_by) { ?>
-        пользователем
+    <?php echo Yii::t('app', 'Created at'); ?>
+    <?php /** @noinspection PhpUnhandledExceptionInspection */
+    echo Yii::$app->formatter->asDatetime($user->created_at); ?>
+    <?php if ($user->hasCreator()) { ?>
+        <?php echo Yii::t('app', 'by'); ?>
         <?php echo $user->createdBy->name; ?>
     <?php } ?>
 </small>
