@@ -22,17 +22,26 @@ phpcs-fix:
 phpstan:
 	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/phpstan analyse --memory-limit=1G
 
+phpstan-clear-cache:
+	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/phpstan clear-result-cache
+
+phpstan-baseline:
+	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/phpstan analyse --memory-limit=1G --generate-baseline
+
 phpunit:
 	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/phpunit
 
 phpunit-coverage:
 	docker exec -w /var/www/app -e XDEBUG_MODE=coverage service-marketplace-php /usr/local/bin/php vendor/bin/phpunit --coverage-text --coverage-html var/log/coverage
 
-phpstan-clear-cache:
-	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/phpstan clear-result-cache
+phpunit-integration:
+	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/phpunit --testsuite integration
 
-phpstan-baseline:
-	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/phpstan analyse --memory-limit=1G --generate-baseline
+phpunit-reset-db:
+	docker compose up -d --force-recreate --wait mysql-test
+
+phpunit-unit:
+	docker exec -w /var/www/app service-marketplace-php /usr/local/bin/php vendor/bin/phpunit --testsuite unit
 
 reinstall-demo-data:
 	docker exec service-marketplace-php /usr/local/bin/php /var/www/app/src/yii.php migrate/down all --interactive=0
