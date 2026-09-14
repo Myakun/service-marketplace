@@ -84,6 +84,11 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->getPrimaryKey();
     }
 
+    public function hasCreator(): bool
+    {
+        return !empty($this->created_by);
+    }
+
     public function rules(): array
     {
         return [
