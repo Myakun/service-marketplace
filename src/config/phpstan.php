@@ -8,6 +8,7 @@ declare(strict_types=1);
  * params, and model behaviors.
  */
 
+use app\components\behaviors\BlameableBehavior as ComponentsBlameableBehavior;
 use app\components\i18n\Formatter;
 use app\models\Category;
 use app\models\Customer;
@@ -43,7 +44,7 @@ return [
         Partner::class => [TimestampBehavior::class],
         Price::class => [TimestampBehavior::class],
         Service::class => [BlameableBehavior::class, PositionBehavior::class, TimestampBehavior::class],
-        User::class => [BlameableBehavior::class, TimestampBehavior::class],
+        User::class => [ComponentsBlameableBehavior::class, TimestampBehavior::class],
     ],
     'components' => [
         'authManager' => [
