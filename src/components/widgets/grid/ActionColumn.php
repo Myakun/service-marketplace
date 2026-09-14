@@ -16,11 +16,11 @@ class ActionColumn extends \kartik\grid\ActionColumn
 
     public $template = '{update} {delete}';
 
-	public $updateOptions = [
+    public $updateOptions = [
         'class' => 'btn btn-light btn-sm'
     ];
 
-	public $vAlign = GridView::ALIGN_TOP;
+    public $vAlign = GridView::ALIGN_TOP;
 
     public $viewOptions = [
         'class' => 'btn btn-light btn-sm'

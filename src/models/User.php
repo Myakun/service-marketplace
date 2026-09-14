@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace app\models;
 
+use app\components\behaviors\BlameableBehavior;
 use Yii;
 use yii\base\Exception;
-use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -14,6 +14,7 @@ use yii\db\Expression;
 use yii\web\IdentityInterface;
 
 /**
+ * @property string $createdAt
  * @property User|null $createdBy
  * @property string $email
  * @property int $id
@@ -89,11 +90,6 @@ class User extends ActiveRecord implements IdentityInterface
     public function getId(): int
     {
         return $this->getPrimaryKey();
-    }
-
-    public function hasCreator(): bool
-    {
-        return !empty($this->created_by);
     }
 
     public function rules(): array
