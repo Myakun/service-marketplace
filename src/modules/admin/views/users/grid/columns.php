@@ -5,7 +5,7 @@ declare(strict_types=1);
 use app\models\User;
 use app\components\widgets\grid\ActionColumn;
 
-$labels = (new User())->attributeLabels();
+$labels = new User()->attributeLabels();
 
 return [
     'id' => [
