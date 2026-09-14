@@ -7,6 +7,13 @@ use yii\db\Migration;
 
 class m220602_093307_users extends Migration
 {
+    public function safeDown(): bool
+    {
+        $this->dropTable(User::tableName());
+
+        return true;
+    }
+
     public function safeUp(): bool
     {
         $this->createTable(User::tableName(), [
@@ -15,7 +22,9 @@ class m220602_093307_users extends Migration
             'name' => $this->string(100)->notNull(),
             'password' => $this->string(100)->notNull(),
             'created_at' => $this->dateTime()->notNull(),
-            'created_by' => $this->integer()->defaultValue(null)
+            'created_by' => $this->integer()->defaultValue(null),
+            'updated_at' => $this->dateTime()->notNull(),
+            'updated_by' => $this->integer()->defaultValue(null)
         ]);
 
         $user = new User();
@@ -25,13 +34,6 @@ class m220602_093307_users extends Migration
             'password' => 'admin'
         ]);
         $user->save();
-
-        return true;
-    }
-
-    public function safeDown(): bool
-    {
-        $this->dropTable(User::tableName());
 
         return true;
     }

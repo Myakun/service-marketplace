@@ -14,11 +14,17 @@ use yii\db\Expression;
 use yii\web\IdentityInterface;
 
 /**
+ * @mixin BlameableBehavior
+ *
+ * @property string $created_at
+ * @property int|null $created_by
  * @property User|null $createdBy
  * @property string $email
  * @property int $id
  * @property string $name
  * @property string $password
+ * @property string $updated_at
+ * @property int|null $updated_by
  */
 class User extends ActiveRecord implements IdentityInterface
 {
