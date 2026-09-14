@@ -11,12 +11,14 @@ use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
 /**
+ * @property string $created_at
  * @property string $email
  * @property int $id
  * @property string $name
  * @property string $password
  * @property string $phone
  * @property string $status
+ * @property string $updated_at
  *
  * @mixin TimestampBehavior
  */
@@ -65,7 +67,6 @@ class Customer extends ActiveRecord implements IdentityInterface
         return [
             'timestamp' => [
                 'class' => TimestampBehavior::class,
-                'updatedAtAttribute' => false,
             ],
         ];
     }
