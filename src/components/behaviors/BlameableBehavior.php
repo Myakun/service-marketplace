@@ -8,6 +8,6 @@ final class BlameableBehavior extends \yii\behaviors\BlameableBehavior
 {
     public function hasCreator(): bool
     {
-        return $this->owner->{$this->createdByAttribute};
+        return $this->owner->{$this->createdByAttribute} !== null;
     }
 }
