@@ -47,23 +47,23 @@ $identity = Yii::$app->getUser()->getIdentity();
                     [
                             'items' => [
                                     [
-                                            'label' => 'Категории',
+                                            'label' => Yii::t('app', 'Categories'),
                                             'url' => ['/admin/categories/index'],
                                     ], [
-                                            'label' => 'Услуги',
+                                            'label' => Yii::t('app', 'Services'),
                                             'url' => ['/admin/services/index'],
                                     ]
                             ],
-                            'label' => 'Услуги',
+                            'label' => Yii::t('app', 'Services'),
                             'url' => '#',
                     ], [
-                            'label' => 'Заказы',
+                            'label' => Yii::t('app', 'Orders'),
                             'url' => ['/admin/orders/index'],
                     ], [
-                            'label' => 'Клиенты',
+                            'label' => Yii::t('app', 'Customers'),
                             'url' => ['/admin/customers/index'],
                     ], [
-                            'label' => 'Партнёры',
+                            'label' => Yii::t('app', 'Partners'),
                             'url' => ['/admin/partners/index'],
                     ], [
                             'label' => Yii::t('app', 'Administrators'),

@@ -11,7 +11,7 @@ use app\widgets\FormSubmit\FormSubmit;
  * @var \app\modules\admin\models\service\Save $model
  */
 
-$this->title = sprintf('Услуга %s', $model->name)
+$this->title = Yii::t('app', 'Service {name}', ['name' => $model->name])
 
 ?>
 

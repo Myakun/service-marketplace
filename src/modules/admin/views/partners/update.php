@@ -9,7 +9,7 @@ use app\widgets\FormSubmit\FormSubmit;
  * @var \app\modules\admin\models\partner\Save $model
  */
 
-$this->title = sprintf('Партнёр %s', $model->name)
+$this->title = Yii::t('app', 'Partner {name}', ['name' => $model->name])
 
 ?>
 

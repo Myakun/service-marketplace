@@ -11,7 +11,7 @@ use yii\helpers\Html;
  * @var \app\modules\admin\models\partner\Index $filterModel
  */
 
-$this->title = 'Партнёры';
+$this->title = Yii::t('app', 'Partners');
 
 ?>
 

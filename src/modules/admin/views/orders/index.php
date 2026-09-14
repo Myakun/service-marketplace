@@ -10,7 +10,7 @@ use yii\helpers\Html;
  * @var \app\modules\admin\models\order\Index $filterModel
  */
 
-$this->title = 'Заказы';
+$this->title = Yii::t('app', 'Orders');
 
 ?>
 

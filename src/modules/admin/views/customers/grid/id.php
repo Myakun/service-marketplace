@@ -13,6 +13,6 @@ use app\models\Customer;
 <?php echo $customer->id; ?>
 <br>
 <small class="text-muted">
-    Создан
+    <?php echo Yii::t('app', 'Created at'); ?>
     <?php echo Yii::$app->formatter->asDatetime($customer->created_at); ?>
 </small>

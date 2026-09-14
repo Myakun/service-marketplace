@@ -15,7 +15,7 @@ use app\models\Order;
 <?php if (Order::STATUS_QUALITY_CHECK == $order->status) {  ?>
     <br>
     <br>
-    <button class="btn btn-primary btn-sm set-rating">Оценить</button>
+    <button class="btn btn-primary btn-sm set-rating"><?php echo Yii::t('app', 'Rate'); ?></button>
 <?php } ?>
 
 

@@ -20,7 +20,7 @@ return [
     'name',
     'contact_person' => [
         'attribute' => 'contactPerson',
-        'label' => 'Контактное лицо',
+        'label' => Yii::t('app', 'Contact person'),
         'value' => function(Partner $partner) {
             return $partner->contact_person;
         }
@@ -29,7 +29,7 @@ return [
     'email',
     'status' => [
         'format' => 'raw',
-        'header' => 'Статус',
+        'header' => Yii::t('app', 'Status'),
         'value' => function(Partner $partner) {
             return $this->render('grid/status', [
                 'partner' => $partner
