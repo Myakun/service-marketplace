@@ -29,8 +29,7 @@ class Index extends FilterModel
 
     public function getQuery(): ActiveQuery
     {
-        $query = Customer::find()
-            ->with(['createdBy']);
+        $query = Customer::find();
 
         if (null != $this->email) {
             $this->enableFilter();

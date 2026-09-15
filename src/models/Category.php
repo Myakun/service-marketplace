@@ -18,6 +18,7 @@ use yii2tech\ar\position\PositionBehavior;
  * @property string $name
  * @property int $position
  * @property Service[] $services
+ * @property string $status
  * @property string $updated_at
  * @property int|null $updated_by
  *

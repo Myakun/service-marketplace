@@ -6,7 +6,6 @@ namespace app\models;
 
 use app\components\behaviors\TimestampBehavior;
 use Yii;
-use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
@@ -98,6 +97,13 @@ class Partner extends ActiveRecord implements IdentityInterface
             ])
             ->all();
 
+        if ($orders === []) {
+            $this->rating = null;
+            $this->save();
+
+            return;
+        }
+
         $total = 0;
         foreach ($orders as $order) {
             /**
@@ -131,16 +137,14 @@ class Partner extends ActiveRecord implements IdentityInterface
         return null;
     }
 
-    public function getCreatedBy(): ActiveQuery
-    {
-        return $this->hasOne(User::class, ['id' => 'created_by']);
-    }
-
     public function getId(): int
     {
         return $this->getPrimaryKey();
     }
 
+    /**
+     * @return array<string, string>
+     */
     public static function getStatusOptions(): array
     {
         return [
