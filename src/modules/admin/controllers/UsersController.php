@@ -20,7 +20,7 @@ class UsersController extends Controller
     public function actionCreate(): Response
     {
         return $this->create(new Save(new User()), [
-            'successMessage' => 'Администратор успешно создан',
+            'successMessage' => Yii::t('app', 'Administrator created successfully'),
         ]);
     }
 
@@ -32,7 +32,7 @@ class UsersController extends Controller
         }
 
         return $this->delete($user, [
-            'successMessage' => 'Администратор успешно удален',
+            'successMessage' => Yii::t('app', 'Administrator deleted successfully'),
         ]);
     }
 
@@ -60,7 +60,7 @@ class UsersController extends Controller
         }
 
         return $this->update(new Save(User::findOne($id)), [
-            'successMessage' => 'Администратор успешно изменён',
+            'successMessage' => Yii::t('app', 'Administrator updated successfully'),
         ]);
     }
 }

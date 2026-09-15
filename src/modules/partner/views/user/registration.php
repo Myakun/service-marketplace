@@ -9,7 +9,7 @@ use yii\helpers\Html;
  * @var \app\modules\partner\models\partner\Registration $model
  */
 
-$this->title = 'Регистрация партнёра';
+$this->title = Yii::t('app', 'Partner registration');
 
 
 $form = ActiveForm::begin();
@@ -36,7 +36,7 @@ echo $form
 ?>
 
 <div class="d-grid">
-    <?php echo Html::submitButton('Зарегистрироваться', ['class' => 'btn btn-primary']) ?>
+    <?php echo Html::submitButton(Yii::t('app', 'Register'), ['class' => 'btn btn-primary']) ?>
 </div>
 
 <?php ActiveForm::end(); ?>

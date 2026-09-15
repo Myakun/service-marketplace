@@ -1,244 +1,244 @@
 [
  {
-  "category": "Клининг",
-  "name": "Генеральная уборка",
-  "description": "Описание услуги"
+  "category": "Cleaning",
+  "name": "Deep cleaning",
+  "description": "Service description"
  },
  {
-  "category": "Клининг",
-  "name": "Мойка балконов, лоджий",
-  "description": "Описание услуги"
+  "category": "Cleaning",
+  "name": "Balcony and loggia cleaning",
+  "description": "Service description"
  },
 {
-  "category": "Клининг",
-  "name": "Мойка окон",
-  "description": "Описание услуги"
+  "category": "Cleaning",
+  "name": "Window cleaning",
+  "description": "Service description"
  },
 {
-  "category": "Клининг",
-  "name": "Уборка квартиры после ремонта",
-  "description": "Описание услуги"
+  "category": "Cleaning",
+  "name": "Post-renovation apartment cleaning",
+  "description": "Service description"
  },
 {
-  "category": "Клининг",
-  "name": "Экспресс-уборка",
-  "description": "Уборка за 1 час - уборка поверхностей от пыли"
+  "category": "Cleaning",
+  "name": "Express cleaning",
+  "description": "One-hour cleaning - dusting of all surfaces"
  },
 {
-  "category": "Клининг",
-  "name": "Уборка после пожара",
-  "description": "Описание услуги"
+  "category": "Cleaning",
+  "name": "Post-fire cleaning",
+  "description": "Service description"
  },
 {
-  "category": "Ремонт бытовой техники",
-  "name": "Ремонт стиральной машины",
-  "description": "Описание услуги"
+  "category": "Appliance repair",
+  "name": "Washing machine repair",
+  "description": "Service description"
  },
 {
-  "category": "Ремонт бытовой техники",
-  "name": "Ремонт посудомоечной машины",
-  "description": "Описание услуги"
+  "category": "Appliance repair",
+  "name": "Dishwasher repair",
+  "description": "Service description"
  },
 {
-  "category": "Ремонт бытовой техники",
-  "name": "Ремонт микроволновки",
-  "description": "Описание услуги"
+  "category": "Appliance repair",
+  "name": "Microwave repair",
+  "description": "Service description"
  },
 {
-  "category": "Ремонт бытовой техники",
-  "name": "Ремонт монитора(телевизора)",
-  "description": "Описание услуги"
+  "category": "Appliance repair",
+  "name": "TV and monitor repair",
+  "description": "Service description"
  },
 {
-  "category": "Ремонт бытовой техники",
-  "name": "Ремонт кондиционеров",
-  "description": "Описание услуги"
+  "category": "Appliance repair",
+  "name": "Air conditioner repair",
+  "description": "Service description"
  },
 {
-  "category": "Ремонт бытовой техники",
-  "name": "Ремонт пылесоса",
-  "description": "Описание услуги"
+  "category": "Appliance repair",
+  "name": "Vacuum cleaner repair",
+  "description": "Service description"
  },
 {
-  "category": "Ремонт бытовой техники",
-  "name": "Ремонт мелкой кухонной техники",
-  "description": "Например, чайники, блендеры, кофемашины и пр."
+  "category": "Appliance repair",
+  "name": "Small kitchen appliance repair",
+  "description": "For example kettles, blenders, coffee machines, etc."
  },
 {
-  "category": "Сборка мебели",
-  "name": "Сборка стенки, гостиной",
-  "description": "Описание услуги"
+  "category": "Furniture assembly",
+  "name": "Wall unit and living room furniture assembly",
+  "description": "Service description"
  },
 {
-  "category": "Сборка мебели",
-  "name": "Сборка прихожей",
-  "description": "Описание услуги"
+  "category": "Furniture assembly",
+  "name": "Hallway furniture assembly",
+  "description": "Service description"
  },
 {
-  "category": "Сборка мебели",
-  "name": "Сборка кухонного гарнитура",
-  "description": "Описание услуги"
+  "category": "Furniture assembly",
+  "name": "Kitchen unit assembly",
+  "description": "Service description"
  },
 {
-  "category": "Сборка мебели",
-  "name": "Сборка спального гарнитура",
-  "description": "Описание услуги"
+  "category": "Furniture assembly",
+  "name": "Bedroom set assembly",
+  "description": "Service description"
  },
 {
-  "category": "Сборка мебели",
-  "name": "Сборка встроенной мебели",
-  "description": "Описание услуги"
+  "category": "Furniture assembly",
+  "name": "Built-in furniture assembly",
+  "description": "Service description"
  },
 {
-  "category": "Сборка мебели",
-  "name": "Сборка корпусной мебели",
-  "description": "Описание услуги"
+  "category": "Furniture assembly",
+  "name": "Cabinet furniture assembly",
+  "description": "Service description"
  },
 {
-  "category": "Сборка мебели",
-  "name": "Сборка шкафов",
-  "description": "Описание услуги"
+  "category": "Furniture assembly",
+  "name": "Wardrobe assembly",
+  "description": "Service description"
  },
 {
-  "category": "Сборка мебели",
-  "name": "Сборка детской мебели",
-  "description": "Описание услуги"
+  "category": "Furniture assembly",
+  "name": "Children's furniture assembly",
+  "description": "Service description"
  },
 {
-  "category": "Электрика",
-  "name": "Аварийный вызов электрика",
-  "description": "Описание услуги"
+  "category": "Electrical",
+  "name": "Emergency electrician call-out",
+  "description": "Service description"
  },
 {
-  "category": "Электрика",
-  "name": "Монтаж теплого пола",
-  "description": "Описание услуги"
+  "category": "Electrical",
+  "name": "Underfloor heating installation",
+  "description": "Service description"
  },
 {
-  "category": "Электрика",
-  "name": "Установка, замена розеток (выключателей)",
-  "description": "Описание услуги"
+  "category": "Electrical",
+  "name": "Socket and switch installation or replacement",
+  "description": "Service description"
  },
 {
-  "category": "Электрика",
-  "name": "Монтаж электрощита",
-  "description": "Описание услуги"
+  "category": "Electrical",
+  "name": "Electrical panel installation",
+  "description": "Service description"
  },
 {
-  "category": "Электрика",
-  "name": "Поиск неисправности и ремонт проводки",
-  "description": "Описание услуги"
+  "category": "Electrical",
+  "name": "Wiring fault finding and repair",
+  "description": "Service description"
  },
 {
-  "category": "Электрика",
-  "name": "Установка, замена счетчиков электроэнергии",
-  "description": "Описание услуги"
+  "category": "Electrical",
+  "name": "Electricity meter installation or replacement",
+  "description": "Service description"
  },
 {
-  "category": "Электрика",
-  "name": "Установка распространенных неисправностей",
-  "description": "Описание услуги"
+  "category": "Electrical",
+  "name": "Troubleshooting common electrical faults",
+  "description": "Service description"
  },
 {
-  "category": "Сантехника",
-  "name": "Монтаж, ремонт системы водоснабжения",
-  "description": "Описание услуги"
+  "category": "Plumbing",
+  "name": "Water supply system installation and repair",
+  "description": "Service description"
  },
 {
-  "category": "Сантехника",
-  "name": "Монтаж, ремонт системы канализации",
-  "description": "Описание услуги"
+  "category": "Plumbing",
+  "name": "Sewage system installation and repair",
+  "description": "Service description"
  },
 {
-  "category": "Сантехника",
-  "name": "Установка сантехники (ванна, унитаз, душ. кабина и т.п.",
-  "description": "Описание услуги"
+  "category": "Plumbing",
+  "name": "Bathtub, toilet and shower installation",
+  "description": "Service description"
  },
 {
-  "category": "Сантехника",
-  "name": "Перенос полотенцесушителя",
-  "description": "Описание услуги"
+  "category": "Plumbing",
+  "name": "Heated towel rail relocation",
+  "description": "Service description"
  },
 {
-  "category": "Сантехника",
-  "name": "Ремонт сантехники",
-  "description": "Описание услуги"
+  "category": "Plumbing",
+  "name": "Plumbing repair",
+  "description": "Service description"
  },
 {
-  "category": "Сантехника",
-  "name": "Реставрация ванны",
-  "description": "Описание услуги"
+  "category": "Plumbing",
+  "name": "Bathtub refinishing",
+  "description": "Service description"
  },
 {
-  "category": "Сантехника",
-  "name": "Установка мебели в ванной",
-  "description": "Описание услуги"
+  "category": "Plumbing",
+  "name": "Bathroom furniture installation",
+  "description": "Service description"
  },
 {
-  "category": "Сантехника",
-  "name": "Установка посудомоечной машины",
-  "description": "Описание услуги"
+  "category": "Plumbing",
+  "name": "Dishwasher installation",
+  "description": "Service description"
  },
 {
-  "category": "Сантехника",
-  "name": "Устранение засоров",
-  "description": "Описание услуги"
+  "category": "Plumbing",
+  "name": "Drain unblocking",
+  "description": "Service description"
  },
 {
-  "category": "Сантехника",
-  "name": "Ремонт сантехники",
-  "description": "Описание услуги"
+  "category": "Plumbing",
+  "name": "Faucet and mixer tap repair",
+  "description": "Service description"
  },
 {
-  "category": "Услуги плотника",
-  "name": "Установка металлических входных дверей",
-  "description": "Описание услуги"
+  "category": "Carpentry",
+  "name": "Steel entrance door installation",
+  "description": "Service description"
  },
 {
-  "category": "Услуги плотника",
-  "name": "Замена входной двери в квартире",
-  "description": "Описание услуги"
+  "category": "Carpentry",
+  "name": "Apartment entrance door replacement",
+  "description": "Service description"
  },
 {
-  "category": "Услуги плотника",
-  "name": "Установка межкомнатных дверей",
-  "description": "Описание услуги"
+  "category": "Carpentry",
+  "name": "Interior door installation",
+  "description": "Service description"
  },
 {
-  "category": "Услуги плотника",
-  "name": "Установка раздвижных межкомнатных дверей",
-  "description": "Описание услуги"
+  "category": "Carpentry",
+  "name": "Sliding interior door installation",
+  "description": "Service description"
  },
 {
-  "category": "Услуги плотника",
-  "name": "Замена замков на двери",
-  "description": "Описание услуги"
+  "category": "Carpentry",
+  "name": "Door lock replacement",
+  "description": "Service description"
  },
 {
-  "category": "Услуги плотника",
-  "name": "Замена замков в металлической двери",
-  "description": "Описание услуги"
+  "category": "Carpentry",
+  "name": "Steel door lock replacement",
+  "description": "Service description"
  },
 {
-  "category": "Услуги плотника",
-  "name": "Замена личинки замка двери",
-  "description": "Описание услуги"
+  "category": "Carpentry",
+  "name": "Lock cylinder replacement",
+  "description": "Service description"
  },
 {
-  "category": "Дизайн интерьера",
-  "name": "Декорирование интерьера",
-  "description": "Описание услуги"
+  "category": "Interior design",
+  "name": "Interior decorating",
+  "description": "Service description"
  },
 {
-  "category": "Дизайн интерьера",
-  "name": "Дизайн помещений",
-  "description": "Описание услуги"
+  "category": "Interior design",
+  "name": "Room design",
+  "description": "Service description"
  }
  ,
 {
-  "category": "Дизайн интерьера",
-  "name": "Консультация дизайнера интерьера",
-  "description": "Описание услуги"
+  "category": "Interior design",
+  "name": "Interior design consultation",
+  "description": "Service description"
  }
 ]
 

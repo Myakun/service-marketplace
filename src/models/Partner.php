@@ -52,7 +52,7 @@ class Partner extends ActiveRecord implements IdentityInterface
                 'partner' => $this,
             ])
             ->setFrom(Yii::$app->params['emailFrom'])
-            ->setSubject(sprintf('Активация аккаунта партнёра на сайте %s', Yii::$app->params['siteName']))
+            ->setSubject(Yii::t('app', 'Partner account activation on {site}', ['site' => Yii::$app->params['siteName']]))
             ->setTo($this->email)
             ->send();
     }
@@ -60,10 +60,10 @@ class Partner extends ActiveRecord implements IdentityInterface
     public function attributeLabels(): array
     {
         return [
-            'contact_person' => 'Контактное лицо',
+            'contact_person' => Yii::t('app', 'Contact person'),
             'email' => 'Email',
-            'name' => 'Название юр. лица',
-            'phone' => 'Телефон',
+            'name' => Yii::t('app', 'Company name'),
+            'phone' => Yii::t('app', 'Phone'),
         ];
     }
 
@@ -144,8 +144,8 @@ class Partner extends ActiveRecord implements IdentityInterface
     public static function getStatusOptions(): array
     {
         return [
-            self::STATUS_ACTIVE => 'Активен',
-            self::STATUS_INACTIVE => 'Не активен',
+            self::STATUS_ACTIVE => Yii::t('app', 'Active'),
+            self::STATUS_INACTIVE => Yii::t('app', 'Inactive'),
         ];
     }
 
@@ -164,7 +164,7 @@ class Partner extends ActiveRecord implements IdentityInterface
                 'partner' => $partner,
             ])
             ->setFrom(Yii::$app->params['emailFrom'])
-            ->setSubject(sprintf('Новый партнёр %s', $partner->name))
+            ->setSubject(Yii::t('app', 'New partner {name}', ['name' => $partner->name]))
             ->setTo(Yii::$app->params['emailFrom'])
             ->send();
 

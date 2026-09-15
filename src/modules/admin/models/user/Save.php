@@ -88,6 +88,6 @@ class Save extends Model
     {
         parent::save();
 
-        // TODO: Отправляем пароль пользователю на почту
+        // TODO: Send the password to the user by email
     }
 }

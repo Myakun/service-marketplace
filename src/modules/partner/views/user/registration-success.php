@@ -8,12 +8,12 @@ declare(strict_types=1);
 
 use yii\helpers\Html;
 
-$this->title = 'Регистрация завершена';
+$this->title = Yii::t('app', 'Registration completed');
 
 ?>
 
 <div class="alert alert-success">
-    Вы успешно зарегистрировались в качестве партнёра.
+    <?php echo Yii::t('app', 'You have successfully registered as a partner.'); ?>
     <br>
-    Наш представитель свяжется с Вами для верификации аккаунта, после чего вы получите доступ к личному кабинету.
+    <?php echo Yii::t('app', 'Our representative will contact you to verify your account, after which you will get access to your partner dashboard.'); ?>
 </div>

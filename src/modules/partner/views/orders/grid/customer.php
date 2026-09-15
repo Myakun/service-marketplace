@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 ?>
 
-<b>Имя:</b> <?php echo $customer->name; ?>
+<b><?php echo Yii::t('app', 'Name'); ?>:</b> <?php echo $customer->name; ?>
 <br>
-<b>Телефон:</b> <?php echo Yii::$app->formatter->formatPhone($customer->phone); ?>
+<b><?php echo Yii::t('app', 'Phone'); ?>:</b> <?php echo Yii::$app->formatter->formatPhone($customer->phone); ?>
 <br>
 <b>Email:</b> <?php echo $customer->email; ?>

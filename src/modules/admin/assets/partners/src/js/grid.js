@@ -5,9 +5,9 @@ $(document).ready(function() {
         let $this = $(this);
         let name = $('.name', $this.closest('tr')).text();
 
-        let msg = 'Подтвердите активацию партнёра ' + name;
+        let msg = 'Confirm activation of partner ' + name;
         if ($this.hasClass('deactivate-partner')) {
-            msg = msg.replace('активацию', 'деактивацию');
+            msg = msg.replace('activation', 'deactivation');
         }
 
         if (!confirm(msg)) {

@@ -76,7 +76,7 @@ class PartnersController extends Controller
     public function actionCreate(): Response
     {
         return $this->create(new Save(new Partner()), [
-            'successMessage' => 'Партнёр успешно создан',
+            'successMessage' => Yii::t('app', 'Partner created successfully'),
         ]);
     }
 
@@ -92,7 +92,7 @@ class PartnersController extends Controller
         }
 
         return $this->delete($partner, [
-            'successMessage' => 'Партнёр успешно удален',
+            'successMessage' => Yii::t('app', 'Partner deleted successfully'),
         ]);
     }
 
@@ -120,7 +120,7 @@ class PartnersController extends Controller
         }
 
         return $this->update(new Save(Partner::findOne($id)), [
-            'successMessage' => 'Партнёр успешно изменён',
+            'successMessage' => Yii::t('app', 'Partner updated successfully'),
         ]);
     }
 }

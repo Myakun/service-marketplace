@@ -46,11 +46,11 @@ class Order extends ActiveRecord
     public function attributeLabels(): array
     {
         return [
-            'customer_id' => 'Клиент',
-            'partner_id' => 'Партнёр',
-            'price' => 'Цена',
-            'service_id' => 'Услуга',
-            'status' => 'Статус',
+            'customer_id' => Yii::t('app', 'Customer'),
+            'partner_id' => Yii::t('app', 'Partner'),
+            'price' => Yii::t('app', 'Price'),
+            'service_id' => Yii::t('app', 'Service'),
+            'status' => Yii::t('app', 'Status'),
         ];
     }
 
@@ -132,22 +132,22 @@ class Order extends ActiveRecord
     public function getStatusName(): string
     {
         return match($this->status) {
-            self::STATUS_CALL => 'Согласование деталей',
-            self::STATUS_DONE => 'Выполнен',
-            self::STATUS_NEW => 'В ожидании выбора исполнителя',
-            self::STATUS_PROCESSING => 'В работе',
-            self::STATUS_QUALITY_CHECK => 'Проверка качества',
+            self::STATUS_CALL => Yii::t('app', 'Agreeing on details'),
+            self::STATUS_DONE => Yii::t('app', 'Completed'),
+            self::STATUS_NEW => Yii::t('app', 'Waiting for a provider to be chosen'),
+            self::STATUS_PROCESSING => Yii::t('app', 'In progress'),
+            self::STATUS_QUALITY_CHECK => Yii::t('app', 'Quality check'),
         };
     }
 
     public function getStatusNameForCustomer(): string
     {
         return match($this->status) {
-            self::STATUS_CALL => 'Принят, представитель компании позвонит вам для согласования деталей',
-            self::STATUS_DONE => 'Выполнен',
-            self::STATUS_NEW => 'В ожидании выбора исполнителя',
-            self::STATUS_PROCESSING => 'В работе',
-            self::STATUS_QUALITY_CHECK => 'Выполнен',
+            self::STATUS_CALL => Yii::t('app', 'Accepted, a company representative will call you to agree on the details'),
+            self::STATUS_DONE => Yii::t('app', 'Completed'),
+            self::STATUS_NEW => Yii::t('app', 'Waiting for a provider to be chosen'),
+            self::STATUS_PROCESSING => Yii::t('app', 'In progress'),
+            self::STATUS_QUALITY_CHECK => Yii::t('app', 'Completed'),
         };
     }
 
@@ -213,11 +213,10 @@ class Order extends ActiveRecord
             ])
             ->setFrom(Yii::$app->params['emailFrom'])
             ->setSubject(
-                sprintf(
-                    '%s - необходимо провести контроль качества заказа №%d',
-                    Yii::$app->params['siteName'],
-                    $this->id
-                )
+                Yii::t('app', '{site} - quality check required for order #{id}', [
+                    'site' => Yii::$app->params['siteName'],
+                    'id' => $this->id,
+                ])
             )
             ->setTo(Yii::$app->params['emailFrom'])
             ->send();

@@ -37,8 +37,8 @@ class Customer extends ActiveRecord implements IdentityInterface
     {
         return [
             'email' => 'Email',
-            'name' => 'Имя',
-            'phone' => 'Телефон',
+            'name' => Yii::t('app', 'Name'),
+            'phone' => Yii::t('app', 'Phone'),
         ];
     }
 

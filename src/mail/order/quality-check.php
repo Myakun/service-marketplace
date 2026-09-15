@@ -8,13 +8,13 @@ declare(strict_types=1);
 
 ?>
 
-Здравствуйте!
+<?php echo Yii::t('app', 'Hello!'); ?>
 <br><br>
-Партнёр <?php echo $order->partner->name; ?> выполнил работу по заказу №<?php echo $order->id; ?>.
+<?php echo Yii::t('app', 'Partner {partner} has completed the work for order #{id}.', ['partner' => $order->partner->name, 'id' => $order->id]); ?>
 <br>
-Необходимо связаться с клиентом для проверки качества предоставленной услуги.
+<?php echo Yii::t('app', 'Please contact the customer to check the quality of the provided service.'); ?>
 <br><br>
-Заказ: <a href="<?php echo $order->getAdminLink(); ?>"><?php echo $order->getAdminLink(); ?></a>
+<?php echo Yii::t('app', 'Order:'); ?> <a href="<?php echo $order->getAdminLink(); ?>"><?php echo $order->getAdminLink(); ?></a>
 
 
 

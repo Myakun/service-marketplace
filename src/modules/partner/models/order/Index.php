@@ -23,7 +23,7 @@ class Index extends FilterModel
         $labels = (new Order())->attributeLabels();
 
         return [
-            'customer' => 'Клиент',
+            'customer' => Yii::t('app', 'Customer'),
             'status' => $labels['status'],
         ];
     }
@@ -32,11 +32,11 @@ class Index extends FilterModel
     public static function getStatusOptions(): array
     {
         return [
-            Order::STATUS_DONE => 'Выполнен',
-            Order::STATUS_CALL => 'Согласование деталей',
-            Order::STATUS_NEW => 'В ожидании выбора исполнителя',
-            Order::STATUS_PROCESSING => 'В работе',
-            Order::STATUS_QUALITY_CHECK => 'Проверка качества',
+            Order::STATUS_DONE => Yii::t('app', 'Completed'),
+            Order::STATUS_CALL => Yii::t('app', 'Agreeing on details'),
+            Order::STATUS_NEW => Yii::t('app', 'Waiting for a provider to be chosen'),
+            Order::STATUS_PROCESSING => Yii::t('app', 'In progress'),
+            Order::STATUS_QUALITY_CHECK => Yii::t('app', 'Quality check'),
         ];
     }
 

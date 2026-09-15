@@ -14,7 +14,7 @@ $this->title = $category->name;
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="/">Главная</a>
+                <a href="/"><?php echo Yii::t('app', 'Home'); ?></a>
             </li>
             <li class="breadcrumb-item active"><?php echo $category->name; ?></li>
         </ol>
@@ -30,10 +30,10 @@ $this->title = $category->name;
             <table class="table table-bordered">
                 <tr>
                     <th>
-                        Услуга
+                        <?php echo Yii::t('app', 'Service'); ?>
                     </th>
                     <th>
-                        Средняя цена
+                        <?php echo Yii::t('app', 'Average price'); ?>
                     </th>
                     <th></th>
                 </tr>
@@ -45,7 +45,7 @@ $this->title = $category->name;
                         <td>
                             <?php echo number_format($service->getAveragePrice(), 0, ',', ' '); ?>
                         <td>
-                            <a href="/service/<?php echo $service->id; ?>" class="btn btn-warning btn-sm">Найти исполнителя</a>
+                            <a href="/service/<?php echo $service->id; ?>" class="btn btn-warning btn-sm"><?php echo Yii::t('app', 'Find a provider'); ?></a>
                         </td>
                     </tr>
                 <?php } ?>

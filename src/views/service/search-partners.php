@@ -8,4 +8,4 @@ declare(strict_types=1);
 
 ?>
 
-Для просмотра списка перейдите по ссылке: <a href="<?php echo $order->getLink(); ?>"><?php echo $order->getLink(); ?></a>
+<?php echo Yii::t('app', 'To view the list, follow the link:'); ?> <a href="<?php echo $order->getLink(); ?>"><?php echo $order->getLink(); ?></a>

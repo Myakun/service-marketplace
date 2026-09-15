@@ -6,6 +6,7 @@ namespace app\widgets\MainMenu;
 
 use app\models\Category;
 use app\models\Service;
+use Yii;
 use yii\base\Widget;
 use yii\db\ActiveQuery;
 use yii\helpers\Url;
@@ -39,7 +40,7 @@ class MainMenu extends Widget
                 foreach ($category->services as $service) {
                     if ($i > 7) {
                         $item['items'][] = [
-                            'label' => 'Все услуги',
+                            'label' => Yii::t('app', 'All services'),
                             'url' => $item['url']
                         ];
 

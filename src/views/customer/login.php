@@ -12,7 +12,7 @@ use yii\helpers\Url;
  * @var Login $model
  */
 
-$this->title = 'Вход в личный кабинет';
+$this->title = Yii::t('app', 'Sign in to your account');
 
 ?>
 
@@ -20,31 +20,31 @@ $this->title = 'Вход в личный кабинет';
     <section>
         <div class="container">
             <h2 class="section-title">
-                <span>Авторизация</span>
+                <span><?php echo Yii::t('app', 'Sign in'); ?></span>
             </h2>
             <div class="section-body">
                 <?php
                 $form = ActiveForm::begin();
 
-                echo $form->errorSummary($model);
+echo $form->errorSummary($model);
 
-                echo $form
-                    ->field($model, 'email')
-                    ->input('email');
+echo $form
+    ->field($model, 'email')
+    ->input('email');
 
-                echo $form
-                    ->field($model, 'password')
-                    ->input('password');
+echo $form
+    ->field($model, 'password')
+    ->input('password');
 
-                echo $form
-                    ->field($model, 'reCaptcha')
-                    ->widget(ReCaptcha3::class)
-                    ->error(false)
-                    ->label(false)
-                ?>
+echo $form
+    ->field($model, 'reCaptcha')
+    ->widget(ReCaptcha3::class)
+    ->error(false)
+    ->label(false)
+?>
 
                 <div class="d-grid mt-4">
-                    <?php echo Html::submitButton('Войти', ['class' => 'btn btn-primary']) ?>
+                    <?php echo Html::submitButton(Yii::t('app', 'Sign in'), ['class' => 'btn btn-primary']) ?>
                 </div>
 
                 <?php ActiveForm::end(); ?>

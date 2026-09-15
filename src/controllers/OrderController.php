@@ -48,10 +48,10 @@ class OrderController extends Controller
             ])
             ->setFrom(Yii::$app->params['emailFrom'])
             ->setSubject(
-                sprintf('%s - новый заказ для услуги %s',
-                    Yii::$app->params['siteName'],
-                    $order->service->name
-                )
+                Yii::t('app', '{site} - new order for {service}', [
+                    'site' => Yii::$app->params['siteName'],
+                    'service' => $order->service->name,
+                ])
             )
             ->setTo($order->partner->email)
             ->send();

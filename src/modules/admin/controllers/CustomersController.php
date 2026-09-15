@@ -47,7 +47,7 @@ class CustomersController extends Controller
     public function actionCreate(): Response
     {
         return $this->create(new Save(new Customer()), [
-            'successMessage' => 'Клиент успешно создан',
+            'successMessage' => Yii::t('app', 'Customer created successfully'),
         ]);
     }
 
@@ -63,7 +63,7 @@ class CustomersController extends Controller
         }
 
         return $this->delete($customer, [
-            'successMessage' => 'Клиент успешно удален',
+            'successMessage' => Yii::t('app', 'Customer deleted successfully'),
         ]);
     }
 
@@ -91,7 +91,7 @@ class CustomersController extends Controller
         }
 
         return $this->update(new Save(Customer::findOne($id)), [
-            'successMessage' => 'Клиент успешно изменён',
+            'successMessage' => Yii::t('app', 'Customer updated successfully'),
         ]);
     }
 }

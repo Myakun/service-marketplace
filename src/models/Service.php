@@ -6,6 +6,7 @@ namespace app\models;
 
 use app\components\behaviors\BlameableBehavior;
 use app\components\behaviors\TimestampBehavior;
+use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii2tech\ar\position\PositionBehavior;
@@ -39,9 +40,9 @@ class Service extends ActiveRecord
     public function attributeLabels(): array
     {
         return [
-            'category_id' => 'Категория',
-            'description' => 'Описание',
-            'name' => 'Название',
+            'category_id' => Yii::t('app', 'Category'),
+            'description' => Yii::t('app', 'Description'),
+            'name' => Yii::t('app', 'Name'),
         ];
     }
 

@@ -1,77 +1,77 @@
 [
  {
-  "contactPerson": "Александр",
-  "email": "volkovvv@gmail.com",
-  "name": "ИП Волков А.Т."
+  "contactPerson": "Alexander Volkov",
+  "email": "volkov@example.com",
+  "name": "Volkov Home Services"
  },
  {
-  "contactPerson": "Евгений",
-  "email": "softmebel@mail.com",
-  "name": "ООО Софт Мебель"
+  "contactPerson": "Eugene Miller",
+  "email": "softfurniture@example.com",
+  "name": "Soft Furniture Ltd"
  },
  {
-  "contactPerson": "Инесса",
-  "email": "ta-ta-ta.63@mail.ru",
-  "name": "Интера-строй"
+  "contactPerson": "Inessa Carter",
+  "email": "interabuild@example.com",
+  "name": "Intera Build"
  },
  {
-  "contactPerson": "Марина",
-  "email": "atolll@gmail.com",
-  "name": "ООО Атол"
+  "contactPerson": "Marina Hughes",
+  "email": "atoll@example.com",
+  "name": "Atoll Services Ltd"
  },
  {
-  "contactPerson": "Кира",
-  "email": "kirakasimova@yandex.ru",
-  "name": "Компания Стильный дом"
+  "contactPerson": "Kira Bennett",
+  "email": "stylishhome@example.com",
+  "name": "Stylish Home Company"
  },
  {
-  "contactPerson": "Эдуард",
-  "email": "kvartiramira@yandex.ru",
-  "name": "Квартира мира"
+  "contactPerson": "Edward Foster",
+  "email": "worldapartment@example.com",
+  "name": "World Apartment"
  },
  {
-  "contactPerson": "Маргарита",
-  "email": "remstroy16@mail.com",
-  "name": "Ремстрой16"
+  "contactPerson": "Margaret Reed",
+  "email": "rembuild16@example.com",
+  "name": "RemBuild 16"
  },
  {
-  "contactPerson": "Вероника",
-  "email": "smartremont18@mail.com",
-  "name": "Смарт-ремонт (Smart Group)"
+  "contactPerson": "Veronica Hayes",
+  "email": "smartrenovation@example.com",
+  "name": "Smart Renovation (Smart Group)"
  },
  {
-  "contactPerson": "Александра",
-  "email": "prestig@gmail.com",
-  "name": "Престиж"
+  "contactPerson": "Alexandra Cole",
+  "email": "prestige@example.com",
+  "name": "Prestige"
  },
  {
-  "contactPerson": "Ксения",
-  "email": "stroyka23@gmail.com",
-  "name": "ООО Стройка"
+  "contactPerson": "Xenia Parker",
+  "email": "buildco@example.com",
+  "name": "BuildCo Ltd"
  },
  {
-  "contactPerson": "Елена",
-  "email": "stolyar.support@mail.com",
-  "name": "Столяр.ру"
+  "contactPerson": "Helen Turner",
+  "email": "joiner.support@example.com",
+  "name": "Joiner.com"
  },
  {
-  "contactPerson": "Михаил",
-  "email": "Voznesenskoye@gmail.com",
-  "name": "ООО Вознесенское подворье"
+  "contactPerson": "Michael Brooks",
+  "email": "ascension@example.com",
+  "name": "Ascension Homestead Ltd"
  },
  {
-  "contactPerson": "Маргарита",
-  "email": "102group.service@mail.com",
-  "name": "102Group - ремонт квартир"
+  "contactPerson": "Margaret Wilson",
+  "email": "102group.service@example.com",
+  "name": "102Group - Apartment Renovation"
  },
  {
-  "contactPerson": "Александр",
-  "email": "vildanov@mail.com",
-  "name": "ИП Вильданов"
+  "contactPerson": "Alexander Wild",
+  "email": "wild@example.com",
+  "name": "Wild Repair Services"
  },
  {
-  "contactPerson": "Анатолий",
-  "email": "anatoliy.zanosov@yandex.ru",
-  "name": "ИП Заносов"
+  "contactPerson": "Anthony Baker",
+  "email": "baker@example.com",
+  "name": "Baker Handyman Services"
  }
 ]

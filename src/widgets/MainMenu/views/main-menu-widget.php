@@ -13,7 +13,7 @@ NavBar::begin([
     'innerContainerOptions' => [
         'class' => 'container'
     ],
-    'togglerContent' => 'Меню'
+    'togglerContent' => Yii::t('app', 'Menu')
 ]);
 
 echo NavX::widget([

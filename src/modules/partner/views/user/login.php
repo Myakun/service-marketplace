@@ -10,7 +10,7 @@ use yii\helpers\Url;
  * @var Login $model
  */
 
-$this->title = 'Аутентификация';
+$this->title = Yii::t('app', 'Sign in');
 
 $form = ActiveForm::begin();
 
@@ -33,11 +33,11 @@ echo $form
 ?>
 
 <div class="d-grid">
-    <?php echo Html::submitButton('Войти', ['class' => 'btn btn-primary']) ?>
+    <?php echo Html::submitButton(Yii::t('app', 'Sign in'), ['class' => 'btn btn-primary']) ?>
 </div>
 
 <div class="mt-4 text-center">
-    <a href="<?php echo Url::to(['/partner/user/registration']) ?>">Регистрация</a>
+    <a href="<?php echo Url::to(['/partner/user/registration']) ?>"><?php echo Yii::t('app', 'Registration'); ?></a>
 </div>
 
 <?php ActiveForm::end(); ?>
