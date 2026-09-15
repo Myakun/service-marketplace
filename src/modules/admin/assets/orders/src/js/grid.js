@@ -4,9 +4,9 @@ $(document).ready(function() {
     $body.on('click', '.set-rating', function() {
         let $this = $(this);
 
-        let rating = parseInt(prompt('Укажите оценку от 1 до 5'));
+        let rating = parseInt(prompt('Enter a rating from 1 to 5'));
         if (isNaN(rating) || rating < 1 || rating > 5) {
-            alert('Неправильная оценка');
+            alert('Invalid rating');
             return false;
         }
 

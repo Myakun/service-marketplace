@@ -10,7 +10,7 @@ declare(strict_types=1);
 use app\components\widgets\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = 'Личный кабинет - профиль';
+$this->title = Yii::t('app', 'My account - profile');
 
 ?>
 
@@ -18,7 +18,7 @@ $this->title = 'Личный кабинет - профиль';
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="/">Главная</a>
+                <a href="/"><?php echo Yii::t('app', 'Home'); ?></a>
             </li>
             <li class="breadcrumb-item active"><?php echo $this->title; ?></li>
         </ol>
@@ -33,16 +33,16 @@ $this->title = 'Личный кабинет - профиль';
         <div class="section-body">
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="/account">Заказы</a>
+                    <a class="nav-link" href="/account"><?php echo Yii::t('app', 'Orders'); ?></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/account/profile">Профиль</a>
+                    <a class="nav-link active" href="/account/profile"><?php echo Yii::t('app', 'Profile'); ?></a>
                 </li>
             </ul>
             <br>
             <?php if ($showSuccessMessage) { ?>
                 <div class="alert alert-success">
-                    Данные успешно сохранены.
+                    <?php echo Yii::t('app', 'Your data has been saved.'); ?>
                 </div>
             <?php } ?>
             <div class="row">
@@ -64,7 +64,7 @@ $this->title = 'Личный кабинет - профиль';
                             'mask' => '+7 (999) 999-99-99'
                         ]);
 
-                    echo Html::submitButton('Сохранить', ['class' => 'btn btn-primary'])
+                    echo Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-primary'])
                     ?>
                 </div>
             </div>

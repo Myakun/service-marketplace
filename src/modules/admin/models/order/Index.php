@@ -34,10 +34,10 @@ class Index extends FilterModel
     public static function getStatusOptions(): array
     {
         return [
-            Order::STATUS_DONE => 'Выполнен',
-            Order::STATUS_CALL => 'Согласование деталей',
-            Order::STATUS_PROCESSING => 'В работе',
-            Order::STATUS_QUALITY_CHECK => 'Проверка качества',
+            Order::STATUS_DONE => Yii::t('app', 'Completed'),
+            Order::STATUS_CALL => Yii::t('app', 'Agreeing on details'),
+            Order::STATUS_PROCESSING => Yii::t('app', 'In progress'),
+            Order::STATUS_QUALITY_CHECK => Yii::t('app', 'Quality check'),
         ];
     }
 

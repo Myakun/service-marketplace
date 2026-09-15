@@ -12,22 +12,22 @@ declare(strict_types=1);
 ?>
 
 <?php if (empty($customer->name)) { ?>
-    Здравствуйте!
+    <?php echo Yii::t('app', 'Hello!'); ?>
 <?php } else { ?>
-    Здравствуйте, <?php echo $customer->name; ?>.
+    <?php echo Yii::t('app', 'Hello, {name}.', ['name' => $customer->name]); ?>
 <?php } ?>
 
 <br><br>
 
-Сервис <?php echo Yii::$app->params['siteName']; ?> подобрал для Вас потенциальных исполнителей для <?php echo $service->name; ?>.
+<?php echo Yii::t('app', '{site} has found potential providers for {service}.', ['site' => Yii::$app->params['siteName'], 'service' => $service->name]); ?>
 <br>
-Для просмотра списка перейдите по ссылке: <a href="<?php echo $order->getLink(); ?>"><?php echo $order->getLink(); ?></a>
+<?php echo Yii::t('app', 'To view the list, follow the link:'); ?> <a href="<?php echo $order->getLink(); ?>"><?php echo $order->getLink(); ?></a>
 <br><br>
 
 <?php if (null != $password) { ?>
-    Для дальнейшей работы с заказом (выбор подходящего исполнителя) Вам понадобится авторизация на сайте.
+    <?php echo Yii::t('app', 'To proceed with your order (selecting a suitable provider), you will need to sign in to the website.'); ?>
     <br>
-    Ваш пароль: <?php echo $password; ?>
+    <?php echo Yii::t('app', 'Your password: {password}', ['password' => $password]); ?>
 <?php } ?>
 
 

@@ -5,7 +5,7 @@ $(document).ready(function() {
         let $this = $(this);
         let name = $('.name', $this.closest('tr')).text();
 
-        if (!confirm('Подтвердите отказ от оказания услуги ' + name)) {
+        if (!confirm('Confirm that you no longer provide the service ' + name)) {
             return;
         }
 
@@ -18,9 +18,9 @@ $(document).ready(function() {
     });
 
     $body.on('click', '.set-price', function() {
-        let price = parseInt(prompt('Укажите цену'));
+        let price = parseInt(prompt('Enter the price'));
         if (isNaN(price) || price <= 0) {
-            alert('Неправильная цена');
+            alert('Invalid price');
             return;
         }
 

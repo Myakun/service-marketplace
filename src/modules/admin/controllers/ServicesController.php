@@ -49,7 +49,7 @@ class ServicesController extends Controller
     public function actionCreate(): Response
     {
         return $this->create(new Save(new Service()), [
-            'successMessage' => 'Сервис успешно создан',
+            'successMessage' => Yii::t('app', 'Service created successfully'),
         ]);
     }
 
@@ -65,7 +65,7 @@ class ServicesController extends Controller
         }
 
         return $this->delete($service, [
-            'successMessage' => 'Сервис успешно удалён',
+            'successMessage' => Yii::t('app', 'Service deleted successfully'),
         ]);
     }
 
@@ -95,7 +95,7 @@ class ServicesController extends Controller
         }
 
         return $this->update(new Save(Service::findOne($id)), [
-            'successMessage' => 'Сервис успешно изменён',
+            'successMessage' => Yii::t('app', 'Service updated successfully'),
         ]);
     }
 

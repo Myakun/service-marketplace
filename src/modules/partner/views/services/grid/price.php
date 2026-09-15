@@ -9,12 +9,12 @@ declare(strict_types=1);
 ?>
 
 <?php if (null == $service->price) { ?>
-    <button class="btn btn-success btn-sm set-price">Указать цену</button>
+    <button class="btn btn-success btn-sm set-price"><?php echo Yii::t('app', 'Set price'); ?></button>
 <?php } else { ?>
     <?php echo $service->price->price; ?>
     <br>
     <br>
-    <button class="btn btn-success btn-sm set-price">Указать новую цену</button>
+    <button class="btn btn-success btn-sm set-price"><?php echo Yii::t('app', 'Set new price'); ?></button>
     <br><br>
-    <button class="btn btn-danger btn-sm delete-price">Услуга более не оказывается</button>
+    <button class="btn btn-danger btn-sm delete-price"><?php echo Yii::t('app', 'Service no longer provided'); ?></button>
 <?php } ?>

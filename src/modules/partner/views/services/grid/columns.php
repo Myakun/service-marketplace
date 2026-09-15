@@ -21,7 +21,7 @@ return [
     ],
     'price' => [
         'format' => 'raw',
-        'header' => 'Цена',
+        'header' => Yii::t('app', 'Price'),
         'value' => function(Service $service) {
             return $this->render('grid/price', [
                 'service' => $service
@@ -30,7 +30,7 @@ return [
     ],
     /*'description' => [
         'format' => 'raw',
-        'header' => 'Описание',
+        'header' => Yii::t('app', 'Description'),
         'value' => function(Service $service) {
             return $this->render('grid/price', [
                 'service' => $service

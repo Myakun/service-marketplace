@@ -6,14 +6,14 @@ declare(strict_types=1);
  * @var \app\models\Category[] $categories
  */
 
-$this->title = Yii::$app->params['siteName'] . ' - главная страница';
+$this->title = Yii::t('app', '{site} - home page', ['site' => Yii::$app->params['siteName']]);
 
 ?>
 
 <section id="services">
     <div class="container">
         <h2 class="section-title">
-            <span>Каталог услуг</span>
+            <span><?php echo Yii::t('app', 'Service catalog'); ?></span>
         </h2>
         <div class="section-body">
             <div class="row">
@@ -38,7 +38,7 @@ $this->title = Yii::$app->params['siteName'] . ' - главная страниц
                         </ul>
                         <?php if ($i == 7) { ?>
                             <a class="show-all" href="/category/<?php echo $category->id; ?>">
-                                Показать все
+                                <?php echo Yii::t('app', 'Show all'); ?>
                             </a>
                         <?php } ?>
                     </div>

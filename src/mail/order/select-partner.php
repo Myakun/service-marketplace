@@ -9,11 +9,11 @@ declare(strict_types=1);
 
 ?>
 
-Здравствуйте!
+<?php echo Yii::t('app', 'Hello!'); ?>
 <br><br>
-Вас выбрали исполнителем для оказания услуги <?php echo $service->name; ?>.
+<?php echo Yii::t('app', 'You have been selected to provide the service {service}.', ['service' => $service->name]); ?>
 <br><br>
-Детали заказа: <a href="<?php echo $order->getPartnerLink(); ?>"><?php echo $order->getPartnerLink(); ?></a>
+<?php echo Yii::t('app', 'Order details:'); ?> <a href="<?php echo $order->getPartnerLink(); ?>"><?php echo $order->getPartnerLink(); ?></a>
 
 
 

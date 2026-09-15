@@ -18,7 +18,7 @@ Yii::$app->formatter
 ?>
 <?php $this->beginPage() ?>
     <!doctype html>
-    <html lang="en">
+    <html lang="<?php echo Yii::$app->language; ?>">
         <head>
             <?php $scheme = Yii::$app->getRequest()->getIsSecureConnection() ? 'https' : 'http'; ?>
             <base href="<?php echo $scheme . '://' . Yii::$app->getRequest()->getServerName() . Yii::$app->getRequest()->getBaseUrl(); ?>">
@@ -47,10 +47,10 @@ Yii::$app->formatter
                     'encodeLabels' => false,
                     'items' => [
                         [
-                            'label' => 'Услуги',
+                            'label' => Yii::t('app', 'Services'),
                             'url' => ['/partner/services/index'],
                         ], [
-                            'label' => 'Заказы',
+                            'label' => Yii::t('app', 'Orders'),
                             'url' => ['/partner/orders/index'],
                         ]
                     ]
@@ -61,7 +61,7 @@ Yii::$app->formatter
                     'encodeLabels' => false,
                     'items' => [
                         [
-                            'label' => 'Выход',
+                            'label' => Yii::t('app', 'Log out'),
                             'url' => ['/partner/user/logout']
                         ],
                     ]

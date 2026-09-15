@@ -50,7 +50,7 @@ class CategoriesController extends Controller
     public function actionCreate(): Response
     {
         return $this->create(new Save(new Category()), [
-            'successMessage' => 'Категория успешно создана',
+            'successMessage' => Yii::t('app', 'Category created successfully'),
         ]);
     }
 
@@ -66,7 +66,7 @@ class CategoriesController extends Controller
         }
 
         return $this->delete($category, [
-            'successMessage' => 'Категория успешно удалена',
+            'successMessage' => Yii::t('app', 'Category deleted successfully'),
         ]);
     }
 
@@ -96,7 +96,7 @@ class CategoriesController extends Controller
         }
 
         return $this->update(new Save(Category::findOne($id)), [
-            'successMessage' => 'Категория успешно изменена',
+            'successMessage' => Yii::t('app', 'Category updated successfully'),
         ]);
     }
 

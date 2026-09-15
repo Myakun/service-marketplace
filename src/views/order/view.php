@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 use kartik\widgets\StarRating;
 
-$this->title = 'Заказ №' . $order->id;
+$this->title = Yii::t('app', 'Order #{id}', ['id' => $order->id]);
 
 $identity = null;
 $isGuest = Yii::$app->getUser()->getIsGuest();
@@ -25,10 +25,10 @@ if (!$isGuest) {
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="/">Главная</a>
+                <a href="/"><?php echo Yii::t('app', 'Home'); ?></a>
             </li>
             <li class="breadcrumb-item">
-                <a href="/account">Личный кабинет</a>
+                <a href="/account"><?php echo Yii::t('app', 'My account'); ?></a>
             </li>
             <li class="breadcrumb-item active"><?php echo $this->title; ?></li>
         </ol>
@@ -49,10 +49,10 @@ if (!$isGuest) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/account">Заказы</a>
+                        <a class="nav-link" href="/account"><?php echo Yii::t('app', 'Orders'); ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/account/profile">Мой профиль</a>
+                        <a class="nav-link" href="/account/profile"><?php echo Yii::t('app', 'My profile'); ?></a>
                     </li>
                 </ul>
             <?php } ?>
@@ -60,9 +60,9 @@ if (!$isGuest) {
             <?php if ($order->status == 'new') { ?>
                 <table class="table table-bordered">
                     <tr>
-                        <th>Фирма</th>
-                        <th>Стоимость услуги</th>
-                        <th>Рейтинг фирмы</th>
+                        <th><?php echo Yii::t('app', 'Company'); ?></th>
+                        <th><?php echo Yii::t('app', 'Service price'); ?></th>
+                        <th><?php echo Yii::t('app', 'Company rating'); ?></th>
                         <th></th>
                     </tr>
                     <?php foreach ($order->offers as $offer) { ?>
@@ -71,11 +71,11 @@ if (!$isGuest) {
                                 <?php echo $offer->partner->name; ?>
                             </td>
                             <td>
-                                <?php echo number_format($offer->price, 0, ',', ' '); ?> руб.
+                                <?php echo number_format($offer->price, 0, ',', ' '); ?> <?php echo Yii::t('app', 'RUB'); ?>
                             </td>
                             <td class="rating">
                                 <?php if (null == $offer->partner->rating) { ?>
-                                    Нет отзывов
+                                    <?php echo Yii::t('app', 'No reviews yet'); ?>
                                 <?php } else { ?>
                                     <?php echo StarRating::widget([
                                         'name' => 'rating' . $offer->id,
@@ -90,30 +90,30 @@ if (!$isGuest) {
                             </td>
                             <td class="text-center">
                                 <?php if ($isGuest) { ?>
-                                    Для выбора исполнителя необходимо <a href="/customer/login">авторизоваться</a>
+                                    <?php echo Yii::t('app', 'To select a provider, please <a href="{url}">sign in</a>', ['url' => '/customer/login']); ?>
                                 <?php } elseif ($identity->isProfileFilled()) { ?>
                                     <button
                                             class="btn btn-success btn-sm select-partner"
                                             data-offer-id="<?php echo $offer->id; ?>"
                                             data-order-id="<?php echo $order->id; ?>">
                                         <span class="icon fas fa-spinner fa-spin"></span>
-                                        <span class="text">Выбрать</span>
+                                        <span class="text"><?php echo Yii::t('app', 'Select'); ?></span>
                                     </button>
                                 <?php } else { ?>
-                                    Для выбора исполнителя необходимо заполнить <a href="/account/profile">профиль</a>
+                                    <?php echo Yii::t('app', 'To select a provider, please fill in your <a href="{url}">profile</a>', ['url' => '/account/profile']); ?>
                                 <?php } ?>
                             </td>
                         </tr>
                     <?php } ?>
                 </table>
             <?php } else { ?>
-                <h3>Ваш заказ <?php echo mb_strtolower($order->getStatusNameForCustomer(), 'utf-8'); ?></h3>
-                <b>Исполнитель:</b> <?php echo $order->partner->name; ?>
+                <h3><?php echo Yii::t('app', 'Your order is {status}', ['status' => mb_strtolower($order->getStatusNameForCustomer(), 'utf-8')]); ?></h3>
+                <b><?php echo Yii::t('app', 'Provider:'); ?></b> <?php echo $order->partner->name; ?>
                 <br>
-                <b>Цена:</b> <?php echo number_format($order->price, 0, ',', ' '); ?> руб.
+                <b><?php echo Yii::t('app', 'Price:'); ?></b> <?php echo number_format($order->price, 0, ',', ' '); ?> <?php echo Yii::t('app', 'RUB'); ?>
                 <?php if (!empty($order->offer->description)) { ?>
                     <br>
-                    <b>Примечания к услуге:</b>
+                    <b><?php echo Yii::t('app', 'Service notes:'); ?></b>
                     <br>
                     <?php echo $order->offer->description; ?>
                 <?php } ?>

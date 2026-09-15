@@ -52,17 +52,17 @@ $phone = Yii::$app->formatter->formatPhone(Yii::$app->params['contacts']['phone'
                             'buttonOptions' => ['class' => 'btn-warning'],
                             'dropdown' => [
                                 'items' => [
-                                    ['label' => 'Клиент', 'url' => '/account'],
-                                    ['label' => 'Партнёр', 'url' => '/partner'],
+                                    ['label' => Yii::t('app', 'Customer'), 'url' => '/account'],
+                                    ['label' => Yii::t('app', 'Partner'), 'url' => '/partner'],
                                 ],
                             ],
-                            'label' => 'Личный кабинет',
+                            'label' => Yii::t('app', 'My account'),
                         ]); ?>
                     <?php } else { ?>
-                        <span>Здравствуйте, <?php echo empty($identity->name) ? $identity->email : $identity->name; ?></span>
+                        <span><?php echo Yii::t('app', 'Hello, {name}', ['name' => empty($identity->name) ? $identity->email : $identity->name]); ?></span>
                         <div>
-                            <a class="btn btn-link btn-sm" href="/account">Личный кабинет</a>
-                            <a class="btn btn-link btn-sm" href="/customer/logout">Выйти</a>
+                            <a class="btn btn-link btn-sm" href="/account"><?php echo Yii::t('app', 'My account'); ?></a>
+                            <a class="btn btn-link btn-sm" href="/customer/logout"><?php echo Yii::t('app', 'Logout'); ?></a>
                         </div>
                     <?php } ?>
                 </div>

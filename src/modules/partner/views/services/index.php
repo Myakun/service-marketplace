@@ -10,7 +10,7 @@ use yii\helpers\Html;
  * @var \app\modules\partner\models\service\Index $filterModel
  */
 
-$this->title = 'Услуги';
+$this->title = Yii::t('app', 'Services');
 
 ?>
 

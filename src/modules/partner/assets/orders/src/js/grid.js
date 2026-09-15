@@ -4,7 +4,7 @@ $(document).ready(function() {
     $body.on('click', '.set-next-status', function() {
         let $this = $(this);
 
-        if (!confirm('Подтвердите смену статуса')) {
+        if (!confirm('Confirm the status change')) {
             return false;
         }
 
@@ -19,7 +19,7 @@ $(document).ready(function() {
     $body.on('click', '.set-status-new', function() {
         let $this = $(this);
 
-        if (!confirm('Подтвердите отказ от заказа')) {
+        if (!confirm('Confirm declining the order')) {
             return false;
         }
 

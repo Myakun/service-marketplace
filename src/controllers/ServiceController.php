@@ -76,10 +76,10 @@ class ServiceController extends Controller
             ])
             ->setFrom(Yii::$app->params['emailFrom'])
             ->setSubject(
-                sprintf('%s - подбор исполнителей для услуги %s',
-                    Yii::$app->params['siteName'],
-                    $service->name
-                )
+                Yii::t('app', '{site} - provider search for {service}', [
+                    'site' => Yii::$app->params['siteName'],
+                    'service' => $service->name,
+                ])
             )
             ->setTo($customer->email)
             ->send();
