@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-/**
- * Application config for the PHPUnit integration suite.
- */
-
 use app\models\User;
 use yii\helpers\ArrayHelper;
 use yii\web\User as WebUser;
@@ -26,7 +22,6 @@ $config = ArrayHelper::merge(include __DIR__ . '/console.php', [
             'fileTransportPath' => '@runtime/mail',
             'useFileTransport' => true,
         ],
-        // Lets behaviors resolve Yii::$app->user->id; tests attach an identity with setIdentity().
         'user' => [
             'class' => WebUser::class,
             'enableAutoLogin' => false,
