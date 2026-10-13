@@ -8,6 +8,7 @@ use app\components\behaviors\BlameableBehavior;
 use app\components\behaviors\TimestampBehavior;
 use Yii;
 use yii\base\Exception;
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
@@ -83,6 +84,11 @@ class User extends ActiveRecord implements IdentityInterface
     public function getAuthKey(): ?string
     {
         return null;
+    }
+
+    public function getCreatedBy(): ActiveQuery
+    {
+        return $this->hasOne(self::class, ['id' => 'created_by']);
     }
 
     public function getId(): int
