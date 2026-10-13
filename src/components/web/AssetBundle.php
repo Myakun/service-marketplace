@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace app\components\web;
 
-use app\components\helpers\AssetVersion;
-
 abstract class AssetBundle extends \yii\web\AssetBundle
 {
     protected const int ASSETS_VERSION = 1;
