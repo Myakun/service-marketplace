@@ -58,11 +58,15 @@ $config = [
             ],
         ],
         'mailer' => [
-            'class' => yii\swiftmailer\Mailer::class,
+            'class' => yii\symfonymailer\Mailer::class,
             'htmlLayout' => false,
             'useFileTransport' => APP_ENV === 'dev',
             'transport' => [
-                'class' => 'Swift_SmtpTransport',
+                'scheme' => $params['mailer']['encryption'] === 'ssl' ? 'smtps' : 'smtp',
+                'host' => $params['mailer']['host'],
+                'port' => $params['mailer']['port'],
+                'username' => $params['mailer']['username'],
+                'password' => $params['mailer']['password'],
             ],
         ],
     ],
@@ -82,14 +86,6 @@ $config['components']['db'] = ArrayHelper::merge($config['components']['db'], [
     ),
     'password' => $params['MySQL']['password'],
     'username' =>  $params['MySQL']['username'],
-]);
-
-$config['components']['mailer']['transport'] = ArrayHelper::merge($config['components']['mailer']['transport'], [
-    'encryption' => $params['mailer']['encryption'],
-    'host' => $params['mailer']['host'],
-    'password' => $params['mailer']['password'],
-    'port' => $params['mailer']['port'],
-    'username' => $params['mailer']['username'],
 ]);
 
 return $config;

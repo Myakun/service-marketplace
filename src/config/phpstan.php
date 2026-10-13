@@ -13,7 +13,7 @@ use himiklab\yii2\recaptcha\ReCaptchaConfig;
 use yii\caching\FileCache;
 use yii\db\Connection;
 use yii\rbac\DbManager;
-use yii\swiftmailer\Mailer;
+use yii\symfonymailer\Mailer;
 use yii\web\IdentityInterface;
 
 return [

@@ -32,8 +32,7 @@ class Index extends FilterModel
 
     public function getQuery(): ActiveQuery
     {
-        $query = Partner::find()
-            ->with(['createdBy']);
+        $query = Partner::find();
 
         if (null != $this->contactPerson) {
             $this->enableFilter();

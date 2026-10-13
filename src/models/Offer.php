@@ -33,7 +33,7 @@ class Offer extends ActiveRecord
             ['order_id', 'required'],
             ['order_id', 'integer'],
             ['order_id', 'exist',
-                'targetClass' => Partner::class,
+                'targetClass' => Order::class,
                 'targetAttribute' => 'id',
             ],
 

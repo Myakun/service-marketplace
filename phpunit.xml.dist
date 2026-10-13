@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
-         bootstrap="src/components/bootstrap.php"
+         bootstrap="tests/bootstrap.php"
          cacheDirectory="var/cache/phpunit"
          colors="true"
          failOnDeprecation="true"
@@ -15,12 +15,16 @@
         <exclude>
             <directory>src/mail</directory>
             <directory>src/migrations</directory>
+            <directory>src/modules/*/views</directory>
             <directory>src/views</directory>
         </exclude>
     </source>
     <testsuites>
         <testsuite name="unit">
             <directory>tests/unit</directory>
+        </testsuite>
+        <testsuite name="integration">
+            <directory>tests/integration</directory>
         </testsuite>
     </testsuites>
 </phpunit>

@@ -8,7 +8,6 @@ use app\components\behaviors\BlameableBehavior;
 use app\components\behaviors\TimestampBehavior;
 use Yii;
 use yii\base\Exception;
-use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
@@ -28,6 +27,8 @@ use yii\web\IdentityInterface;
  */
 class User extends ActiveRecord implements IdentityInterface
 {
+    public const int EMAIL_MAX_LENGTH = 255;
+
     public const int NAME_MAX_LENGTH = 100;
 
     public function attributeLabels(): array
@@ -84,11 +85,6 @@ class User extends ActiveRecord implements IdentityInterface
         return null;
     }
 
-    public function getCreatedBy(): ActiveQuery
-    {
-        return $this->hasOne(User::class, ['id' => 'created_by']);
-    }
-
     public function getId(): int
     {
         return $this->getPrimaryKey();
@@ -97,17 +93,16 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules(): array
     {
         return [
-            ['email', 'email'],
             ['email', 'required'],
+            ['email', 'string', 'max' => self::EMAIL_MAX_LENGTH],
+            ['email', 'email'],
             ['email', 'unique'],
 
             ['name', 'required'],
             ['name', 'string', 'max' => self::NAME_MAX_LENGTH],
 
             ['password', 'required',
-                'when' => function (self $user) {
-                    return $user->getIsNewRecord();
-                },
+                'when' => fn(self $user): bool => $user->getIsNewRecord() || $user->isAttributeChanged('password'),
             ],
         ];
     }

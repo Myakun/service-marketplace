@@ -22,6 +22,7 @@ use yii2tech\ar\position\PositionBehavior;
  * @property string $name
  * @property int $position
  * @property Price[] $prices
+ * @property string $status
  * @property string $updated_at
  * @property int|null $updated_by
  *
@@ -106,15 +107,15 @@ class Service extends ActiveRecord
 
     public function getMinPrice(): int
     {
-        $minPrice = 0;
+        $minPrice = null;
 
         foreach ($this->prices as $price) {
-            if (null == $minPrice || $price->price < $minPrice) {
+            if ($minPrice === null || $price->price < $minPrice) {
                 $minPrice = $price->price;
             }
         }
 
-        return $minPrice;
+        return $minPrice ?? 0;
     }
 
     public function getPrices(): ActiveQuery
