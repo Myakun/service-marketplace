@@ -14,6 +14,16 @@ use Yii;
 
 final class UserTest extends IntegrationTestCase
 {
+    public function testCreatedByReturnsAuthor(): void
+    {
+        $author = UserTestFactory::create();
+        $this->loginAs($author);
+
+        $user = UserTestFactory::create();
+
+        self::assertSame($author->id, $user->createdBy?->id);
+    }
+
     public function testEmailIsRequired(): void
     {
         $user = UserTestFactory::prepare(['email' => null]);
@@ -47,7 +57,7 @@ final class UserTest extends IntegrationTestCase
 
     public function testModelHasExpectedBehaviors(): void
     {
-        $actual = array_map(fn($b) => $b['class'], new User()->behaviors());
+        $actual = array_map(fn ($b) => $b['class'], new User()->behaviors());
 
         self::assertArraysHaveEqualValuesIgnoringOrder([BlameableBehavior::class, TimestampBehavior::class], $actual);
     }
