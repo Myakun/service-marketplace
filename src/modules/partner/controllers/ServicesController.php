@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace app\modules\partner\controllers;
 
-use app\components\web\Controller;
 use app\components\web\crud\CRUDTrait;
+use app\components\web\WebUser;
 use app\models\Price;
 use app\models\User;
+use app\modules\partner\components\web\Controller;
 use app\modules\partner\models\Service;
 use app\modules\partner\models\service\Index;
 use Yii;
@@ -68,7 +69,7 @@ class ServicesController extends Controller
         $partnerPrice = $service->price;
         if (null == $partnerPrice) {
             $partnerPrice = new Price();
-            $partnerPrice->partner_id = Yii::$app->getUser()->getId();
+            $partnerPrice->partner_id = WebUser::partner()->getId();
             $partnerPrice->service_id = $id;
         }
 

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace app\modules\partner\controllers;
 
-use app\components\web\Controller;
 use app\components\web\crud\CRUDTrait;
 use app\models\Order;
+use app\modules\partner\components\web\Controller;
 use app\modules\partner\models\order\Index;
 use Yii;
 use yii\web\NotFoundHttpException;

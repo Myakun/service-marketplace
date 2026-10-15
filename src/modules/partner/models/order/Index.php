@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace app\modules\partner\models\order;
 
 use app\components\base\FilterModel;
+use app\components\web\WebUser;
 use app\models\Order;
 use app\models\Partner;
 use Yii;
@@ -47,7 +48,7 @@ class Index extends FilterModel
         /**
          * @var Partner $partner
          */
-        $partner = Yii::$app->getUser()->getIdentity();
+        $partner = WebUser::partner()->getIdentity();
         $query = Order::find()
             ->andWhere(['partner_id' => $partner->id])
             ->with(['customer', 'service'])

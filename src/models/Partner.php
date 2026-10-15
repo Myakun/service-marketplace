@@ -153,6 +153,11 @@ class Partner extends ActiveRecord implements IdentityInterface
         ];
     }
 
+    public function isActive(): bool
+    {
+        return $this->status === self::STATUS_ACTIVE;
+    }
+
     public static function register(string $contactPerson, string $email, string $name, string $phone): self
     {
         $partner = new self();
