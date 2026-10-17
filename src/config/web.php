@@ -2,22 +2,44 @@
 
 declare(strict_types=1);
 
+use app\components\web\WebUser;
 use app\models\Customer;
 use app\models\Partner;
 use app\models\User;
 use himiklab\yii2\recaptcha\ReCaptchaConfig;
 use yii\helpers\ArrayHelper;
 
-define('IS_ADMIN', str_contains($_SERVER['REQUEST_URI'], '/admin'));
-define('IS_PARTNER', str_contains($_SERVER['REQUEST_URI'], '/partner'));
-
 $params = include __DIR__ . '/params.php';
 
 $config = [
     'components' => [
+        'adminUser' => [
+            'class' => WebUser::class,
+            'enableAutoLogin' => true,
+            'idParam' => '__id-admin',
+            'identityClass' => User::class,
+            'identityCookie' => [
+                'httpOnly' => true,
+                'name' => '_identity-admin',
+            ],
+            'loginUrl' => ['/admin/user/login'],
+            'returnUrlParam' => '__returnUrl-admin',
+        ],
         'assetManager' => [
             'basePath' => APP_ENV == 'dev' ? '@runtime/assets' : '@webroot/assets',
             'linkAssets' => APP_ENV == 'dev',
+        ],
+        'partnerUser' => [
+            'class' => WebUser::class,
+            'enableAutoLogin' => true,
+            'idParam' => '__id-partner',
+            'identityClass' => Partner::class,
+            'identityCookie' => [
+                'httpOnly' => true,
+                'name' => '_identity-partner',
+            ],
+            'loginUrl' => ['/partner/user/login'],
+            'returnUrlParam' => '__returnUrl-partner',
         ],
         'reCaptcha' => [
             'class' => ReCaptchaConfig::class,
@@ -38,26 +60,8 @@ $config = [
                 'service/<id:\d+>' => 'service/view',
             ],
         ],
-        'user' => IS_ADMIN ? [
-            'enableAutoLogin' => true,
-            'idParam' => '__id-admin',
-            'identityClass' => User::class,
-            'identityCookie' => [
-                'httpOnly' => true,
-                'name' => '_identity-admin',
-            ],
-            'loginUrl' => ['/admin/user/login'],
-        ] : (
-        IS_PARTNER ? [
-            'enableAutoLogin' => true,
-            'idParam' => '__id-partner',
-            'identityClass' => Partner::class,
-            'identityCookie' => [
-                'httpOnly' => true,
-                'name' => '_identity-partner',
-            ],
-            'loginUrl' => ['/partner/user/login'],
-        ] : [
+        'user' => [
+            'class' => WebUser::class,
             'enableAutoLogin' => true,
             'idParam' => '__id-customer',
             'identityClass' => Customer::class,
@@ -66,8 +70,8 @@ $config = [
                 'name' => '_identity-customer',
             ],
             'loginUrl' => ['/customer/login'],
-        ]
-        ),
+            'returnUrlParam' => '__returnUrl-customer',
+        ],
         'view' => [
             'class' => \app\components\web\View::class
         ]
