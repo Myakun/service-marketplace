@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace app\modules\admin\controllers;
 
-use app\components\web\Controller;
 use app\components\web\crud\CRUDTrait;
 use app\models\Customer;
+use app\modules\admin\components\web\Controller;
 use app\modules\admin\models\customer\Index;
 use app\modules\admin\models\customer\Save;
 use Yii;
