@@ -5,8 +5,12 @@ declare(strict_types=1);
 namespace app\tests\unit\components\behaviors;
 
 use app\components\behaviors\BlameableBehavior;
+use app\components\web\WebUser;
+use app\tests\utils\StubIdentity;
 use PHPUnit\Framework\TestCase;
 use yii\base\DynamicModel;
+use yii\base\Event;
+use yii\db\BaseActiveRecord;
 
 final class BlameableBehaviorTest extends TestCase
 {
