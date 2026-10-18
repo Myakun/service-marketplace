@@ -48,15 +48,15 @@ return [
         'reCaptcha' => [
             'class' => ReCaptchaConfig::class,
         ],
-        'user' => [
+        WebUser::CUSTOMER => [
             'class' => WebUser::class,
             'identityClass' => Customer::class,
         ],
-        'adminUser' => [
+        WebUser::ADMIN => [
             'class' => WebUser::class,
             'identityClass' => User::class,
         ],
-        'partnerUser' => [
+        WebUser::PARTNER => [
             'class' => WebUser::class,
             'identityClass' => Partner::class,
         ],

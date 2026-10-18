@@ -13,7 +13,7 @@ $params = include __DIR__ . '/params.php';
 
 $config = [
     'components' => [
-        'adminUser' => [
+        WebUser::ADMIN => [
             'class' => WebUser::class,
             'enableAutoLogin' => true,
             'idParam' => '__id-admin',
@@ -29,7 +29,7 @@ $config = [
             'basePath' => APP_ENV == 'dev' ? '@runtime/assets' : '@webroot/assets',
             'linkAssets' => APP_ENV == 'dev',
         ],
-        'partnerUser' => [
+        WebUser::PARTNER => [
             'class' => WebUser::class,
             'enableAutoLogin' => true,
             'idParam' => '__id-partner',
@@ -60,7 +60,7 @@ $config = [
                 'service/<id:\d+>' => 'service/view',
             ],
         ],
-        'user' => [
+        WebUser::CUSTOMER => [
             'class' => WebUser::class,
             'enableAutoLogin' => true,
             'idParam' => '__id-customer',

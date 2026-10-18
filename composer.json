@@ -78,6 +78,11 @@
     "phpstan": "phpstan analyse --memory-limit=1G",
     "phpunit": "phpunit"
   },
+  "autoload": {
+    "psr-4": {
+      "app\\": "src/"
+    }
+  },
   "autoload-dev": {
     "psr-4": {
       "app\\tests\\": "tests/"

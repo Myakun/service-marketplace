@@ -12,7 +12,7 @@ $params = include __DIR__ . '/params.php';
 
 $config = ArrayHelper::merge(include __DIR__ . '/console.php', [
     'components' => [
-        'adminUser' => [
+        WebUser::ADMIN => [
             'class' => WebUser::class,
             'enableAutoLogin' => false,
             'enableSession' => false,
@@ -30,13 +30,13 @@ $config = ArrayHelper::merge(include __DIR__ . '/console.php', [
             'fileTransportPath' => '@runtime/mail',
             'useFileTransport' => true,
         ],
-        'partnerUser' => [
+        WebUser::PARTNER => [
             'class' => WebUser::class,
             'enableAutoLogin' => false,
             'enableSession' => false,
             'identityClass' => Partner::class,
         ],
-        'user' => [
+        WebUser::CUSTOMER => [
             'class' => WebUser::class,
             'enableAutoLogin' => false,
             'enableSession' => false,
