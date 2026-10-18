@@ -2,14 +2,22 @@
 
 declare(strict_types=1);
 
+use app\components\web\WebUser;
+use app\models\Customer;
+use app\models\Partner;
 use app\models\User;
 use yii\helpers\ArrayHelper;
-use yii\web\User as WebUser;
 
 $params = include __DIR__ . '/params.php';
 
 $config = ArrayHelper::merge(include __DIR__ . '/console.php', [
     'components' => [
+        WebUser::ADMIN => [
+            'class' => WebUser::class,
+            'enableAutoLogin' => false,
+            'enableSession' => false,
+            'identityClass' => User::class,
+        ],
         'db' => [
             'dsn' => sprintf(
                 'mysql:dbname=%s_test;host=%s;port=3306;',
@@ -22,11 +30,17 @@ $config = ArrayHelper::merge(include __DIR__ . '/console.php', [
             'fileTransportPath' => '@runtime/mail',
             'useFileTransport' => true,
         ],
-        'user' => [
+        WebUser::PARTNER => [
             'class' => WebUser::class,
             'enableAutoLogin' => false,
             'enableSession' => false,
-            'identityClass' => User::class,
+            'identityClass' => Partner::class,
+        ],
+        WebUser::CUSTOMER => [
+            'class' => WebUser::class,
+            'enableAutoLogin' => false,
+            'enableSession' => false,
+            'identityClass' => Customer::class,
         ],
     ],
     'id' => 'service-marketplace-test',

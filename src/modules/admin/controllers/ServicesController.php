@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace app\modules\admin\controllers;
 
 use app\components\actions\Sorting;
-use app\components\web\Controller;
 use app\components\web\crud\CRUDTrait;
 use app\models\Service;
+use app\modules\admin\components\web\Controller;
 use app\modules\admin\models\service\Index;
 use app\modules\admin\models\service\Save;
 use JetBrains\PhpStorm\ArrayShape;

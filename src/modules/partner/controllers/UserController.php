@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\partner\controllers;
 
+use app\components\web\WebUser;
 use app\models\Partner;
 use app\modules\partner\models\user\Login;
 use app\modules\partner\models\partner\Registration;
@@ -27,7 +28,7 @@ class UserController extends Controller
         $attributes = Yii::$app->getRequest()->post();
         if ($model->load($attributes) && $model->validate()) {
             $identity = Partner::findOne(['email' => $model->email]);
-            Yii::$app->getUser()->login($identity, 60 * 60 * 6);
+            WebUser::partner()->login($identity, 60 * 60 * 6);
 
             return $this->redirect(Url::to(['/partner']));
         }
@@ -41,7 +42,7 @@ class UserController extends Controller
 
     public function actionLogout(): Response
     {
-        Yii::$app->getUser()->logout();
+        WebUser::partner()->logout(false);
 
         return $this->redirect('/partner/user/login');
     }
@@ -54,7 +55,7 @@ class UserController extends Controller
         if ($model->load($attributes) && $model->validate()) {
             $partner = Partner::register($model->contactPerson, $model->email, $model->name, $model->phone);
 
-            Yii::$app->getUser()->login($partner, 60 * 60 * 6);
+            WebUser::partner()->login($partner, 60 * 60 * 6);
 
             return $this->redirect(['/partner/user/registration-success']);
         }
@@ -71,7 +72,7 @@ class UserController extends Controller
         /**
          * @var Partner $partner
          */
-        $partner = Yii::$app->getUser()->getIdentity();
+        $partner = WebUser::partner()->getIdentity();
         if (Partner::STATUS_ACTIVE === $partner->status) {
             return $this->redirect(['/partner']);
         }
@@ -89,6 +90,7 @@ class UserController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::class,
+                'user' => WebUser::PARTNER,
                 'only' => ['login', 'logout'],
                 'rules' => [
                     [

@@ -6,6 +6,7 @@ use app\tests\utils\MigrateController;
 use yii\console\Application;
 
 defined('APP_ENV') || define('APP_ENV', 'test');
+const YII_ENABLE_ERROR_HANDLER = false;
 
 require dirname(__DIR__) . '/src/components/bootstrap.php';
 

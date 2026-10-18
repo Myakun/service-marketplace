@@ -4,11 +4,14 @@ declare(strict_types=1);
 
 namespace app\tests\utils;
 
+use app\components\web\WebUser;
+use app\models\Customer;
+use app\models\Partner;
+use app\models\User;
 use app\tests\utils\models\ModelTestFactory;
 use PHPUnit\Framework\TestCase;
 use Yii;
 use yii\db\Transaction;
-use yii\web\IdentityInterface;
 
 /**
  * Base class for integration tests.
@@ -18,11 +21,22 @@ abstract class IntegrationTestCase extends TestCase
 {
     private Transaction $transaction;
 
-    protected function loginAs(IdentityInterface $identity): void
+    protected function loginAsAdmin(User $admin): void
     {
-        Yii::$app->user->setIdentity($identity);
+        WebUser::admin()->switchIdentity($admin);
     }
 
+    protected function loginAsCustomer(Customer $customer): void
+    {
+        WebUser::customer()->switchIdentity($customer);
+    }
+
+    protected function loginAsPartner(Partner $partner): void
+    {
+        WebUser::partner()->switchIdentity($partner);
+    }
+
+    #[\Override]
     protected function setUp(): void
     {
         parent::setUp();
@@ -31,9 +45,12 @@ abstract class IntegrationTestCase extends TestCase
         ModelTestFactory::reset();
     }
 
+    #[\Override]
     protected function tearDown(): void
     {
-        Yii::$app->user->setIdentity(null);
+        WebUser::admin()->setIdentity(null);
+        WebUser::customer()->setIdentity(null);
+        WebUser::partner()->setIdentity(null);
         $this->transaction->rollBack();
 
         parent::tearDown();

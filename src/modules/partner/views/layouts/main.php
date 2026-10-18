@@ -1,17 +1,18 @@
 <?php
 
 use app\components\assets\FontAwesome;
-use app\models\User;
+use app\components\web\WebUser;
+use app\models\Partner;
 use kartik\nav\NavX;
 use yii\bootstrap5\NavBar;
 use yii\helpers\Html;
 
 /**
  * @var string $content
- * @var User $identity
+ * @var Partner $identity
  */
 
-$identity = Yii::$app->getUser()->getIdentity();
+$identity = WebUser::partner()->getIdentity();
 
 Yii::$app->formatter
 

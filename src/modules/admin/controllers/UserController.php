@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace app\modules\admin\controllers;
 
+use app\components\web\WebUser;
 use app\models\User;
 use app\modules\admin\models\user\AdminLogin;
 use JetBrains\PhpStorm\ArrayShape;
@@ -25,9 +26,9 @@ class UserController extends Controller
         $attributes = Yii::$app->getRequest()->post();
         if ($model->load($attributes) && $model->validate()) {
             $identity = User::findOne(['email' => $model->email]);
-            Yii::$app->getUser()->login($identity, 60 * 60 * 6);
+            WebUser::admin()->login($identity, 60 * 60 * 6);
 
-            return $this->redirect(Yii::$app->getUser()->getReturnUrl());
+            return $this->redirect(WebUser::admin()->getReturnUrl());
         }
 
         return new Response([
@@ -39,7 +40,7 @@ class UserController extends Controller
 
     public function actionLogout(): Response
     {
-        Yii::$app->getUser()->logout();
+        WebUser::admin()->logout(false);
 
         return $this->redirect('/admin/user/login');
     }
@@ -50,6 +51,7 @@ class UserController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::class,
+                'user' => WebUser::ADMIN,
                 'only' => ['login', 'logout'],
                 'rules' => [
                     [

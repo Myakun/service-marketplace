@@ -7,8 +7,6 @@ parameters:
         - src/components/bootstrap.php
     dynamicConstantNames:
         - APP_ENV
-        - IS_ADMIN
-        - IS_PARTNER
     excludePaths:
         - src/mail
         - src/modules/*/views

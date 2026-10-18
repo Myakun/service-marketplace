@@ -37,7 +37,7 @@ class CustomerController extends Controller
 
     public function actionLogout(): Response
     {
-        Yii::$app->getUser()->logout();
+        Yii::$app->getUser()->logout(false);
 
         return $this->redirect('/');
     }

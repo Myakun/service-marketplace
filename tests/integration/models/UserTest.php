@@ -14,14 +14,13 @@ use Yii;
 
 final class UserTest extends IntegrationTestCase
 {
-    public function testCreatedByReturnsAuthor(): void
+    public function testCreatedByReturnsCreator(): void
     {
-        $author = UserTestFactory::create();
-        $this->loginAs($author);
-
+        $creator = UserTestFactory::create();
+        $this->loginAsAdmin($creator);
         $user = UserTestFactory::create();
 
-        self::assertSame($author->id, $user->createdBy?->id);
+        self::assertSame($creator->id, $user->createdBy?->id);
     }
 
     public function testEmailIsRequired(): void
@@ -57,7 +56,7 @@ final class UserTest extends IntegrationTestCase
 
     public function testModelHasExpectedBehaviors(): void
     {
-        $actual = array_map(fn ($b) => $b['class'], new User()->behaviors());
+        $actual = array_map(fn($b) => $b['class'], new User()->behaviors());
 
         self::assertArraysHaveEqualValuesIgnoringOrder([BlameableBehavior::class, TimestampBehavior::class], $actual);
     }
@@ -93,6 +92,15 @@ final class UserTest extends IntegrationTestCase
         );
     }
 
+    public function testPasswordIsHashedWhenChanged(): void
+    {
+        $user = UserTestFactory::create();
+        $user->password = 'changed1234';
+        $user->save();
+
+        self::assertTrue(Yii::$app->security->validatePassword('changed1234', $user->password));
+    }
+
     public function testPasswordIsKeptOnUnrelatedUpdate(): void
     {
         $user = UserTestFactory::create();
@@ -101,17 +109,6 @@ final class UserTest extends IntegrationTestCase
         $user->save();
 
         self::assertSame($hash, $user->password);
-    }
-
-
-    public function testPasswordIsRehashedWhenChanged(): void
-    {
-        $user = UserTestFactory::create();
-
-        $user->password = 'changed1234';
-        $user->save();
-
-        self::assertTrue(Yii::$app->security->validatePassword('changed1234', $user->password));
     }
 
     public function testPasswordIsRequiredOnInsert(): void

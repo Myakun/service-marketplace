@@ -1,6 +1,7 @@
 <?php
 
 use app\components\assets\FontAwesome;
+use app\components\web\WebUser;
 use app\models\User;
 use kartik\nav\NavX;
 use yii\bootstrap5\NavBar;
@@ -11,7 +12,7 @@ use yii\helpers\Html;
  * @var User $identity
  */
 
-$identity = Yii::$app->getUser()->getIdentity();
+$identity = WebUser::admin()->getIdentity();
 
 ?>
 <?php $this->beginPage() ?>
